@@ -33,9 +33,8 @@ export default function Imprint() {
 
           <h2>VAT</h2>
           <p>
-            {/* TODO(owner): if you hold a USt-IdNr it MUST be listed here (§ 5 (1) no. 6 DDG).
-                If you are a small business under § 19 UStG, state that instead. */}
-            VAT identification number: <span className="todo">[to be supplied]</span>
+            Under the small business regulation (Section 19 of the German VAT Act, UStG), no VAT
+            is charged and no VAT identification number is held.
           </p>
 
           <h2>Online dispute resolution</h2>

@@ -52,8 +52,8 @@ export default function Pricing() {
               <div className="path__price">Individual · announced at launch</div>
             </div>
           </Reveal>
-          <p className="label" style={{ marginTop: 20, display: "flex", justifyContent: "center" }}>
-            // not sure which? tell us in the waitlist — we&rsquo;ll recommend a path
+          <p className="label" style={{ marginTop: 20, display: "flex", justifyContent: "center", textAlign: "center" }}>
+            // not sure which? tell us in the waitlist — we&rsquo;ll recommend a path · quoted without VAT (small business, § 19 UStG)
           </p>
         </div>
       </section>
