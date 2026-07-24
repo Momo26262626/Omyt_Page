@@ -23,16 +23,16 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
   title: {
-    default: "omyt — know your customers better than anyone",
+    default: "omyt — it thinks about your business, then it acts",
     template: "%s · omyt",
   },
   description:
-    "omyt is a company brain that learns each customer from every signal they emit, then turns that understanding into outreach, timing and decisions automatically. It runs on a persistent semantic world model, so what it learns compounds instead of resetting.",
+    "omyt is a company brain: it holds everything your company knows, reasons across all of it continuously to form real thoughts about what is happening, and wires each thought straight to execution. Nothing waits for you to notice it.",
   keywords: ["company brain", "semantic world model", "AI business operating system", "founder", "outreach automation", "pipeline", "business intelligence"],
   openGraph: {
-    title: "omyt — know your customers better than anyone",
+    title: "omyt — it thinks about your business, then it acts",
     description:
-      "Understand every account continuously, then act on what is learned — automatically, at a scale you could not work by hand.",
+      "It reasons across everything your company knows, forms actual thoughts about what is happening, and acts on them. That is how one person out-executes companies ten times their size.",
     url: "https://omyt.ai",
     siteName: "omyt",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "omyt — the company brain",
     description:
-      "Learn every customer from every signal they emit, then scale what you learn automatically.",
+      "A company brain that thinks about your business continuously, and acts on what it concludes.",
   },
 };
 
@@ -59,9 +59,9 @@ const jsonLd = {
       name: "omyt",
       url: "https://omyt.ai",
       email: "hello@omyt.ai",
-      slogan: "Know your customers better than anyone",
+      slogan: "It thinks about your business, then it acts",
       description:
-        "omyt is a company brain that learns each customer continuously and turns that understanding into action, on a persistent semantic world model so the knowledge compounds.",
+        "omyt is a company brain that reasons continuously across everything the company knows and connects each conclusion directly to execution.",
     },
     {
       "@type": "WebSite",

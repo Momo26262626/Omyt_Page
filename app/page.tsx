@@ -44,12 +44,49 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── 002 · WHAT YOU GET — value, concrete ────────────────────────── */}
+      {/* ── 002 · THE THOUGHTS — the novelty, shown ─────────────────────── */}
+      <section className="panel section" id="thoughts">
+        <div className="container">
+          <div className="sec">
+            <div>
+              <div className="sec__index">// 002 — what a thought looks like</div>
+              <h2 className="h2 sec__h">Most software<br />stores. This<br />one thinks.</h2>
+            </div>
+            <p className="sec__lede lede">
+              A thought is what happens when a system holds everything at once: it notices what you
+              would have noticed, if you had been looking at all of it, at 4am. Each one arrives
+              already attached to the thing to do about it.
+            </p>
+          </div>
+
+          <div className="thoughts mt-l">
+            {THOUGHTS.map((t, i) => (
+              <Reveal key={t.think} className="thought" delay={i * 60}>
+                <div className="thought__head">
+                  <span className="thought__n">thought_{String(i + 1).padStart(2, "0")}</span>
+                  <span className="thought__src">{t.src}</span>
+                </div>
+                <p className="thought__body">{t.think}</p>
+                <div className="thought__act">
+                  <span className="thought__arrow" aria-hidden>→</span>
+                  <span className="thought__actlabel">acted</span>
+                  <span className="thought__acttext">{t.act}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="label mt-s" style={{ color: "var(--dim2)" }}>
+            // illustrative — the shape of the output, not real customer data
+          </p>
+        </div>
+      </section>
+
+      {/* ── 003 · WHAT YOU GET — value, concrete ────────────────────────── */}
       <section className="panel panel--concrete section">
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 002 — what you get</div>
+              <div className="sec__index">// 003 — what you get</div>
               <h2 className="h2 sec__h">Depth on every<br />account. Not just<br />the ten you recall.</h2>
             </div>
             <p className="sec__lede lede">
@@ -76,7 +113,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 003 — architecture, abridged</div>
+              <div className="sec__index">// 004 — architecture, abridged</div>
               <h2 className="h2 sec__h">This is a<br />real system.<br />Here&rsquo;s its shape.</h2>
             </div>
             <p className="sec__lede lede">
@@ -107,7 +144,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 004 — how it&rsquo;s done</div>
+              <div className="sec__index">// 005 — how it&rsquo;s done</div>
               <h2 className="h2 sec__h">A persistent<br />semantic<br />world model.</h2>
             </div>
             <p className="sec__lede lede">
@@ -133,7 +170,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 005 — the loop</div>
+              <div className="sec__index">// 006 — the loop</div>
               <h2 className="h2 sec__h">Every outcome<br />makes the next<br />call sharper.</h2>
             </div>
             <p className="sec__lede lede">
@@ -160,7 +197,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 006 — what it runs</div>
+              <div className="sec__index">// 007 — what it runs</div>
               <h2 className="h2 sec__h">One brain.<br />Everything that<br />moves revenue.</h2>
             </div>
             <p className="sec__lede lede">
@@ -187,7 +224,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 007 — trust by design</div>
+              <div className="sec__index">// 008 — trust by design</div>
               <h2 className="h2 sec__h">A brain you&rsquo;d<br />actually leave<br />running.</h2>
             </div>
             <p className="sec__lede lede">Everything it can do on your behalf sits behind guardrails, and one switch.</p>
@@ -220,6 +257,24 @@ export default function Home() {
     </>
   );
 }
+
+const THOUGHTS = [
+  {
+    src: "4 threads · renewal date · 2 historical churns",
+    think: "Northwind's champion has gone quiet for nine days and their renewal lands in thirty-four. The last two accounts that went quiet at exactly this stage churned.",
+    act: "Drafted a re-engagement to the economic buyer, not the champion. Queued for your approval.",
+  },
+  {
+    src: "3 accounts · sector news · pricing-page behaviour",
+    think: "Three logistics accounts all hit pricing this week. That sector just took a fuel-cost shock, which is the same pattern that preceded your two fastest deals last year.",
+    act: "Built a twelve-account lookalike list in the same sector and sequenced it for Tuesday.",
+  },
+  {
+    src: "40 replies · win/loss history",
+    think: "Your last forty replies argue about integration time, not price. The positioning still leads on cost.",
+    act: "Rewrote the objection block in the live sequence and flagged the positioning change for review.",
+  },
+];
 
 const OUTCOMES = [
   { t: "Understand every account", d: "Not the ten you happen to remember. omyt reads the whole book continuously — what each customer does, says, ignores, and repeats — and keeps that understanding current." },

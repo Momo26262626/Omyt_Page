@@ -54,10 +54,10 @@ export function BrutalHero() {
             <div className="label label--acc">// company_brain.spec</div>
             <pre className="code mt-s" aria-hidden="true">
 {`struct CompanyBrain {
-  `}<span className="k">learn</span>{`(every_customer);
-  `}<span className="k">model</span>{`(what_it_means);
-  `}<span className="k">decide</span>{`(next_move);
-  `}<span className="k">scale</span>{`(automatically);
+  `}<span className="k">know</span>{`(everything);
+  `}<span className="k">think</span>{`(continuously);
+  `}<span className="k">act</span>{`(on_every_thought);
+  `}<span className="k">learn</span>{`(from_the_result);
 };`}
             </pre>
           </div>
@@ -76,15 +76,15 @@ export function BrutalHero() {
           </div>
           <div className="label">// the company brain</div>
           <h1 className="dsp hero__title stagger mt-s">
-            <span className="ln" style={{ ["--i" as string]: 0 }}>Know your</span>
-            <span className="ln" style={{ ["--i" as string]: 1 }}>customers better</span>
-            <span className="ln" style={{ ["--i" as string]: 2 }}>than<span className="brk">_</span>anyone<span className="brk">.</span></span>
+            <span className="ln" style={{ ["--i" as string]: 0 }}>It thinks about</span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>your business.</span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>Then<span className="brk">_</span>it acts<span className="brk">.</span></span>
           </h1>
           <p className="hero__lede">
-            omyt learns each customer from every signal they emit, then turns that understanding
-            into outreach, timing and decisions{" "}
-            <span style={{ color: "var(--bone)" }}>automatically, at a scale you couldn&rsquo;t work by hand</span>.
-            The knowledge compounds. The execution follows.
+            Every hour, omyt reasons across everything your company knows and forms{" "}
+            <span style={{ color: "var(--bone)" }}>actual thoughts</span> about what is happening —
+            then wires each one straight to execution. Nothing waits for you to notice it. That is
+            how one person out-executes companies ten times their size.
           </p>
         </div>
 
