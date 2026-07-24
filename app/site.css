@@ -339,6 +339,40 @@
 .path__price { margin-top: auto; padding-top: 18px; font-family: var(--font-mono); font-size: 12.5px; color: var(--dim2); letter-spacing: 0.02em; border-top: 1px solid var(--line); }
 @media (max-width: 760px) { .paths { grid-template-columns: 1fr; } .path { border-right: 0; border-bottom: 1px solid var(--line); } }
 
+/* ── architecture stack (the proof section) ────────────────────────────── */
+.stack { border: 1px solid var(--line); }
+.stack__row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 0.8fr) minmax(0, 2fr) 92px;
+  gap: clamp(14px, 2.4vw, 34px);
+  align-items: baseline;
+  padding: clamp(18px, 2.2vw, 26px) clamp(16px, 2vw, 26px);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.25s var(--ease);
+}
+.stack__row:last-child { border-bottom: 0; }
+.stack__row:hover { background: color-mix(in oklab, var(--fg) 4%, transparent); }
+.stack__n { font-family: var(--font-mono); font-size: 13px; color: var(--acc); letter-spacing: 0.08em; }
+.stack__t { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1rem, 1.6vw, 1.2rem); letter-spacing: -0.01em; color: var(--fg); }
+.stack__d { color: var(--dim); font-size: 14px; line-height: 1.6; }
+.stack__tag {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--dim2); justify-self: end; border: 1px solid var(--line); padding: 4px 9px; white-space: nowrap;
+}
+/* the two layers whose internals we don't publish */
+.stack__row.is-held { background: color-mix(in oklab, var(--fg) 3%, transparent); }
+.stack__row.is-held .stack__tag { color: var(--acc); border-color: color-mix(in oklab, var(--acc) 45%, transparent); }
+.stack__row.is-held .stack__d::after {
+  content: " ▚▚▚▚";
+  color: var(--dim2);
+  letter-spacing: -2px;
+}
+@media (max-width: 860px) {
+  .stack__row { grid-template-columns: 50px 1fr; gap: 10px 16px; }
+  .stack__d { grid-column: 2; }
+  .stack__tag { grid-column: 2; justify-self: start; }
+}
+
 /* ── legal / long-form prose ───────────────────────────────────────────── */
 .prose { max-width: 74ch; }
 .prose__lead { font-size: clamp(1.02rem, 1.35vw, 1.2rem); color: var(--fg); line-height: 1.6; padding-bottom: 26px; border-bottom: 1px solid var(--line); }

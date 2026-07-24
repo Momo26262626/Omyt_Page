@@ -23,16 +23,16 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
   title: {
-    default: "omyt — the company brain with a persistent semantic world model",
+    default: "omyt — know your customers better than anyone",
     template: "%s · omyt",
   },
   description:
-    "omyt is a company brain. It reads every signal from your business — deals, conversations, market, outcomes — and keeps them as one persistent semantic world model it can reason over, so you always know the next move.",
+    "omyt is a company brain that learns each customer from every signal they emit, then turns that understanding into outreach, timing and decisions automatically. It runs on a persistent semantic world model, so what it learns compounds instead of resetting.",
   keywords: ["company brain", "semantic world model", "AI business operating system", "founder", "outreach automation", "pipeline", "business intelligence"],
   openGraph: {
-    title: "omyt — the company brain with a persistent semantic world model",
+    title: "omyt — know your customers better than anyone",
     description:
-      "One living model of your whole business — reading every signal, remembering it, and reasoning over it to tell you the next move.",
+      "Understand every account continuously, then act on what is learned — automatically, at a scale you could not work by hand.",
     url: "https://omyt.ai",
     siteName: "omyt",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "omyt — the company brain",
     description:
-      "A persistent semantic world model of your business that reads every signal and tells you the next move.",
+      "Learn every customer from every signal they emit, then scale what you learn automatically.",
   },
 };
 
@@ -59,9 +59,9 @@ const jsonLd = {
       name: "omyt",
       url: "https://omyt.ai",
       email: "hello@omyt.ai",
-      slogan: "The company brain — a persistent semantic world model",
+      slogan: "Know your customers better than anyone",
       description:
-        "omyt is a company brain that keeps a persistent semantic world model of your business — reading every signal, remembering it, and reasoning over it to surface the next move.",
+        "omyt is a company brain that learns each customer continuously and turns that understanding into action, on a persistent semantic world model so the knowledge compounds.",
     },
     {
       "@type": "WebSite",
@@ -76,8 +76,8 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
-        "A company brain that keeps a persistent semantic world model of your business — unifying outreach, pipeline, automations, and strategy under one model that reasons across every signal.",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        "A company brain that learns every customer continuously and scales that understanding into outreach, pipeline, automations and strategy.",
+      // pricing is individual and access is invite-only, so no public offer is advertised
     },
   ],
 };

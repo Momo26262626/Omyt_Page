@@ -17,8 +17,8 @@ export function SiteFooter() {
           <div>
             <span style={{ display: "inline-flex", color: "var(--fg)" }}><Wordmark size={26} /></span>
             <p className="footer__tag" style={{ marginTop: 18 }}>
-              The company brain — a persistent semantic world model of your business. It reads
-              every signal, remembers it, and reasons over it to tell you the next move.
+              The company brain. It learns each customer from every signal they emit, then turns
+              that understanding into action — automatically, and at scale.
             </p>
             <div className="footer__path">omyt.ai / company_brain / v2</div>
           </div>
@@ -47,7 +47,7 @@ export function SiteFooter() {
 
         <div className="footer__bottom">
           <span>© {new Date().getFullYear()} omyt</span>
-          <span>persistent semantic world model</span>
+          <span>know your customers better than anyone</span>
         </div>
       </div>
     </footer>
