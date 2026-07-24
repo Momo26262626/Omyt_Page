@@ -35,14 +35,17 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
+          <div style={{ display: "flex", fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
             Persistent
           </div>
-          <div style={{ fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
+          <div style={{ display: "flex", fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
             Semantic
           </div>
-          <div style={{ fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
-            World<span style={{ color: "#6b7280" }}>_</span>Model<span style={{ color: "#44c5e4" }}>.</span>
+          <div style={{ display: "flex", fontSize: 116, fontWeight: 800, lineHeight: 0.9, letterSpacing: -4, textTransform: "uppercase" }}>
+            <span>World</span>
+            <span style={{ color: "#6b7280" }}>_</span>
+            <span>Model</span>
+            <span style={{ color: "#44c5e4" }}>.</span>
           </div>
         </div>
 
