@@ -91,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is static, server-rendered structured data
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <div className="progressbar" aria-hidden="true" />
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />

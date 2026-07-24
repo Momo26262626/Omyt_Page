@@ -1,42 +1,49 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrainOrganism } from "./BrainOrganism";
 
 /**
- * Brutalist-industrial hero. A bespoke technical line-drawing of a brain
- * (BlueprintBrain — pure SVG, annotated like a spec sheet) sits beside the type
- * with a subtle scroll-parallax; the headline is heavy grotesque, annotated
- * with a mono `struct CompanyBrain {}` spec block and a live scroll readout.
- * Flat & matte — no glow, no stock image.
+ * Brutalist-industrial hero. The product's own brain organism (BrainOrganism —
+ * canvas point cloud, real anatomy) sits beside the type; the headline is heavy
+ * grotesque, annotated with a mono `struct CompanyBrain {}` spec block and a
+ * live scroll readout. Flat & matte — no glow, no stock image.
+ *
+ * The brain is pinned via CSS `position: sticky` and turns itself off the
+ * scroll position it reads; this component only owns the numeric readout.
+ * `scrollHeight` is cached on resize rather than read per frame, so the scroll
+ * handler never forces a reflow.
  */
 export function BrutalHero() {
-  const objRef = useRef<HTMLDivElement | null>(null);
   const [pct, setPct] = useState(0);
 
   useEffect(() => {
-    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
+    let max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const measure = () => {
+      max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    };
     const onScroll = () => {
       if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
-        const y = window.scrollY;
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        setPct(max > 0 ? Math.min(100, Math.round((y / max) * 100)) : 0);
-        if (!reduce && objRef.current && y < window.innerHeight * 1.5) {
-          objRef.current.style.transform = `translate3d(0, ${y * 0.08}px, 0)`;
-        }
+        setPct(Math.max(0, Math.min(100, Math.round((window.scrollY / max) * 100))));
       });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+    const ro = new ResizeObserver(measure);
+    ro.observe(document.documentElement);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      ro.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     <section className="hero">
-      <div className="hero__object" ref={objRef} aria-hidden="true">
+      <div className="hero__object" aria-hidden="true">
         <BrainOrganism className="hero__brain" />
       </div>
 
@@ -68,10 +75,10 @@ export function BrutalHero() {
             </span>
           </div>
           <div className="label">// the company brain</div>
-          <h1 className="dsp hero__title mt-s">
-            <span className="ln">Persistent</span>
-            <span className="ln">Semantic</span>
-            <span className="ln">World<span className="brk">_</span>Model<span className="brk">.</span></span>
+          <h1 className="dsp hero__title stagger mt-s">
+            <span className="ln" style={{ ["--i" as string]: 0 }}>Persistent</span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>Semantic</span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>World<span className="brk">_</span>Model<span className="brk">.</span></span>
           </h1>
           <p className="hero__lede">
             omyt reads every signal your business emits — deals, conversations, market, outcomes —

@@ -50,12 +50,14 @@
   background: var(--ink);
   isolation: isolate;
 }
+/* the organ is pinned by CSS sticky — it holds while the copy scrolls past,
+   then releases with the hero. No JS, works in every browser. */
 .hero__object {
   position: absolute; inset: 0; z-index: 0; overflow: visible;
-  will-change: transform;
   display: flex; align-items: flex-start; justify-content: flex-end;
   pointer-events: none;
 }
+.hero__object > * { position: sticky; top: 0; }
 .hero__object { align-items: center; }
 .hero__brain {
   display: block;
@@ -262,6 +264,27 @@
 .ticker__sep { color: var(--acc); }
 @keyframes tickerScroll { to { transform: translateX(calc(-50% - 22px)); } }
 @media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
+
+/* scroll-linked drift on the rail: the marquee leans with scroll direction,
+   so scrolling up visibly reverses it. Enhancement only. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .ticker__rail {
+      display: block;
+      animation: railDrift auto linear;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes railDrift { to { transform: translate3d(-22vw, 0, 0); } }
+  }
+}
+
+/* ── angular wedge between sections ────────────────────────────────────── */
+.wedge { position: relative; }
+.wedge::after {
+  content: ""; position: absolute; inset: auto 0 -1px 0; height: 76px;
+  background: var(--bg); transform-origin: 100% 100%;
+  transform: skewY(-2deg) scaleY(1); pointer-events: none;
+}
 
 /* ── waitlist form ─────────────────────────────────────────────────────── */
 .wl { max-width: 760px; }

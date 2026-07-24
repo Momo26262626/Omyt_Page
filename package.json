@@ -13,7 +13,6 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "lucide-react": "^1.18.0",
     "next": "^16.2.6",
     "next-sitemap": "^4.2.3",
     "react": "^18.2.0",

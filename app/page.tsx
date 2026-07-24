@@ -30,12 +30,14 @@ export default function Home() {
 
       {/* ── TICKER ─────────────────────────────────────────────────────── */}
       <div className="panel ticker" aria-hidden="true">
-        <div className="ticker__track">
-          {["a", "b"].flatMap((grp) =>
-            TICKER.map((w) => (
-              <span key={`${grp}-${w}`}>{w}<span className="ticker__sep" style={{ marginLeft: 44 }}>»</span></span>
-            )),
-          )}
+        <div className="ticker__rail">
+          <div className="ticker__track">
+            {["a", "b"].flatMap((grp) =>
+              TICKER.map((w) => (
+                <span key={`${grp}-${w}`}>{w}<span className="ticker__sep" style={{ marginLeft: 44 }}>»</span></span>
+              )),
+            )}
+          </div>
         </div>
       </div>
 

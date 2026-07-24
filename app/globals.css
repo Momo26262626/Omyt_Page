@@ -206,10 +206,61 @@ img, svg { display: block; max-width: 100%; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-/* ── fixed scroll-progress instrument (right edge) ─────────────────────── */
-.scrollmeter {
-  position: fixed; top: 0; right: 0; bottom: 0; width: 0; z-index: 40;
+/* ══════════════════════════════════════════════════════════════════════════
+   SCROLL-DRIVEN LAYER — progressive enhancement only.
+   Everything here is double-gated: it runs only where the browser supports
+   scroll timelines AND the visitor hasn't asked for reduced motion. Browsers
+   without support (Firefox, today) fall back to the IntersectionObserver
+   `Reveal` component and plain sticky positioning, which is a complete page.
+   Composited properties only (transform / opacity) so it stays off the main
+   thread. Note: `animation-timeline` is reset-only in the `animation`
+   shorthand, so it must always be declared AFTER `animation:`.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* scroll-progress rule, pinned under the nav — zero JS */
+.progressbar {
+  position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 60;
+  background: var(--acc); transform-origin: 0 50%; transform: scaleX(0);
   pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .progressbar {
+      animation: barGrow auto linear;
+      animation-timeline: scroll(root block);
+    }
+    @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
+
+  @supports (animation-timeline: view()) {
+    /* the CSS layer owns reveals here — stop Reveal.tsx double-animating */
+    .reveal { opacity: 1; transform: none; transition: none; }
+
+    /* line-level stagger: each line carries --i, offset via animation-range
+       (time-based animation-delay is ignored on a progress timeline) */
+    .stagger { view-timeline: --stg block; }
+    .stagger .ln {
+      animation: lineUp linear both;
+      animation-timeline: --stg;
+      animation-range: entry calc(var(--i, 0) * 8%) entry calc(60% + var(--i, 0) * 8%);
+    }
+    @keyframes lineUp {
+      from { opacity: 0; transform: translate3d(0, 0.5em, 0); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* section content rises as it enters */
+    .rise {
+      animation: riseIn linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 34%;
+    }
+    @keyframes riseIn {
+      from { opacity: 0; transform: translate3d(0, 26px, 0); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
 }
 
 /* ── utilities ─────────────────────────────────────────────────────────── */
