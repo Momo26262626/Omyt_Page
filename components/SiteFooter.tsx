@@ -40,6 +40,8 @@ export function SiteFooter() {
           <div className="footer__col">
             <span className="footer__h">Contact</span>
             <a href="mailto:hello@omyt.ai">hello@omyt.ai</a>
+            <Link href="/legal/imprint">Imprint</Link>
+            <Link href="/legal/privacy">Privacy</Link>
           </div>
         </div>
 

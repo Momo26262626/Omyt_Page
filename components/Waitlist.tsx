@@ -93,9 +93,14 @@ export function Waitlist() {
           {status === "sending" ? "Sending…" : "Request an invite"} <span className="arr">↗</span>
         </button>
         <p className="wl__note">
-          {status === "err"
-            ? "Something went wrong — email hello@omyt.ai and we'll add you."
-            : "We only use your details to contact you about access. No spam, ever."}
+          {status === "err" ? (
+            "Something went wrong — email hello@omyt.ai and we'll add you."
+          ) : (
+            <>
+              We only use your details to contact you about access. No spam, ever. See our{" "}
+              <a href="/legal/privacy" className="wl__link">privacy policy</a>.
+            </>
+          )}
         </p>
       </div>
     </form>

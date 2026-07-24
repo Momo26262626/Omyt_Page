@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
-type Entry = { ts: string; name: string; email: string; need: string; mode: string; ua: string };
+type Entry = { ts: string; name: string; email: string; need: string; mode: string };
 
 /**
  * Waitlist capture — serverless-safe.
@@ -37,14 +37,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   }
 
-  const entry: Entry = {
-    ts: new Date().toISOString(),
-    name,
-    email,
-    need,
-    mode,
-    ua: req.headers.get("user-agent") ?? "",
-  };
+  // Data minimisation (GDPR Art. 5(1)(c)): store only what we need to reply.
+  const entry: Entry = { ts: new Date().toISOString(), name, email, need, mode };
 
   await Promise.allSettled([notifyEmail(entry), appendFile(entry)]);
   console.log(`[waitlist] signup · ${entry.email} · ${entry.mode}`);
