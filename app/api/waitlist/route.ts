@@ -7,10 +7,17 @@ export const dynamic = "force-dynamic";
 
 const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
+type Entry = { ts: string; name: string; email: string; need: string; mode: string; ua: string };
+
 /**
- * Waitlist capture. Appends each signup to data/waitlist.jsonl and logs it.
- * Degrades safely (still 200 for the visitor if the write fails).
- * OWNER: wire this to email/CRM (Resend, etc.) for production notifications.
+ * Waitlist capture — serverless-safe.
+ * - If RESEND_API_KEY is set, emails each signup to WAITLIST_NOTIFY_TO (prod path).
+ * - Also tries to append to data/waitlist.jsonl (works locally; no-op on read-only
+ *   serverless filesystems — wrapped in try/catch, never fatal).
+ * - Always degrades to 200 for the visitor; failures are logged, never lost silently.
+ *
+ * Vercel env: RESEND_API_KEY (required for notifications),
+ *   WAITLIST_NOTIFY_TO (default hello@omyt.ai), WAITLIST_FROM (default "omyt <hello@omyt.ai>").
  */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -30,7 +37,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   }
 
-  const entry = {
+  const entry: Entry = {
     ts: new Date().toISOString(),
     name,
     email,
@@ -39,15 +46,53 @@ export async function POST(req: Request) {
     ua: req.headers.get("user-agent") ?? "",
   };
 
-  try {
-    const dir = path.join(process.cwd(), "data");
-    await fs.mkdir(dir, { recursive: true });
-    await fs.appendFile(path.join(dir, "waitlist.jsonl"), `${JSON.stringify(entry)}\n`, "utf8");
-  } catch (err) {
-    // Never lose the signal silently — surface it in the server log.
-    console.error("[waitlist] persist failed", err, entry);
-  }
+  await Promise.allSettled([notifyEmail(entry), appendFile(entry)]);
   console.log(`[waitlist] signup · ${entry.email} · ${entry.mode}`);
 
   return NextResponse.json({ ok: true });
+}
+
+async function notifyEmail(e: Entry): Promise<void> {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return; // no notifier configured (local dev) — file fallback handles it
+  const to = process.env.WAITLIST_NOTIFY_TO || "hello@omyt.ai";
+  const from = process.env.WAITLIST_FROM || "omyt waitlist <hello@omyt.ai>";
+  const text = [
+    `New waitlist signup`,
+    ``,
+    `Name:  ${e.name}`,
+    `Email: ${e.email}`,
+    `Run:   ${e.mode}`,
+    ``,
+    `Need:`,
+    e.need || "(none given)",
+    ``,
+    `— ${e.ts}`,
+  ].join("\n");
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: e.email,
+        subject: `Waitlist · ${e.name} · ${e.mode}`,
+        text,
+      }),
+    });
+    if (!res.ok) console.error("[waitlist] resend failed", res.status, await res.text().catch(() => ""));
+  } catch (err) {
+    console.error("[waitlist] resend error", err);
+  }
+}
+
+async function appendFile(e: Entry): Promise<void> {
+  try {
+    const dir = path.join(process.cwd(), "data");
+    await fs.mkdir(dir, { recursive: true });
+    await fs.appendFile(path.join(dir, "waitlist.jsonl"), `${JSON.stringify(e)}\n`, "utf8");
+  } catch {
+    // read-only filesystem (serverless) — expected; notifyEmail is the prod path.
+  }
 }
