@@ -49,8 +49,8 @@ export function SiteNav() {
 
         <div className="nav__actions">
           <a href={APP_URL} className="nav__signin">Sign in</a>
-          <a href={`${APP_URL}/sign-up`} className="btn btn--primary nav__cta">
-            Start free <span className="arr">→</span>
+          <a href="/#waitlist" className="nav__cta">
+            <span>Join waitlist</span> ↗
           </a>
           <button
             type="button"
@@ -68,8 +68,8 @@ export function SiteNav() {
         {LINKS.map((l) => (
           <Link key={l.href} href={l.href} className="nav__sheet-link">{l.label}</Link>
         ))}
-        <a href={`${APP_URL}/sign-up`} className="btn btn--primary" style={{ marginTop: 8 }}>
-          Start free <span className="arr">→</span>
+        <a href="/#waitlist" className="btn btn--primary" style={{ marginTop: 8 }}>
+          Join waitlist <span className="arr">↗</span>
         </a>
       </div>
     </header>

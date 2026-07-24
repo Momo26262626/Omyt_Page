@@ -1,34 +1,40 @@
-export function Mark({ size = 26 }: { size?: number }) {
+/** omyt brand mark — two forward chevrons + node, cyan→blue→indigo gradient. */
+export function Mark({ size = 22 }: { size?: number }) {
+  const w = Math.round((size * 80) / 64);
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <svg width={w} height={size} viewBox="24 14 80 64" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="mk" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-          <stop stopColor="oklch(66% 0.140 237)" />
-          <stop offset="1" stopColor="oklch(60% 0.180 293)" />
+        <linearGradient id="omk-a" x1="15" y1="22" x2="75" y2="70" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#44c5e4" />
+          <stop offset="0.58" stopColor="#2f86c6" />
+          <stop offset="1" stopColor="#285a9c" />
+        </linearGradient>
+        <linearGradient id="omk-b" x1="48" y1="20" x2="90" y2="68" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#4ea7de" />
+          <stop offset="0.56" stopColor="#3e78bd" />
+          <stop offset="1" stopColor="#8b82d3" />
         </linearGradient>
       </defs>
-      {/* orbit ring */}
-      <circle cx="16" cy="16" r="11.5" stroke="url(#mk)" strokeWidth="1.6" opacity="0.45" />
-      {/* nucleus */}
-      <rect x="9.5" y="9.5" width="13" height="13" rx="4.4" fill="url(#mk)" />
-      <rect x="9.5" y="9.5" width="13" height="13" rx="4.4" fill="oklch(100% 0 0 / 0.14)" />
-      {/* north-star satellite */}
-      <circle cx="26" cy="7.5" r="3" fill="oklch(72% 0.150 70)" />
-      <circle cx="26" cy="7.5" r="3" stroke="oklch(99% 0.004 252)" strokeWidth="1.4" />
+      <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M31 21 L57 46 L31 71" stroke="url(#omk-a)" strokeWidth="8" />
+        <path d="M53 21 L79 46 L53 71" stroke="url(#omk-b)" strokeWidth="8" />
+      </g>
+      <circle cx="91" cy="46" r="6" fill="#8f8bd8" />
     </svg>
   );
 }
 
-export function Wordmark({ size = 26 }: { size?: number }) {
+export function Wordmark({ size = 22 }: { size?: number }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 9 }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 11, color: "inherit" }}>
       <Mark size={size} />
       <span
         style={{
+          fontFamily: "var(--font-display)",
           fontWeight: 800,
-          fontSize: size * 0.74,
-          letterSpacing: "-0.045em",
-          color: "var(--ink)",
+          fontSize: size * 0.92,
+          letterSpacing: "-0.03em",
+          lineHeight: 1,
         }}
       >
         omyt

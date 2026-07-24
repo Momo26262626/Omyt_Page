@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206 92" role="img" aria-labelledby="title">
+  <title id="title">omyt</title>
+  <defs>
+    <linearGradient id="omyt-mark-a" x1="15" y1="22" x2="75" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#44c5e4"/>
+      <stop offset="0.58" stop-color="#2f86c6"/>
+      <stop offset="1" stop-color="#285a9c"/>
+    </linearGradient>
+    <linearGradient id="omyt-mark-b" x1="48" y1="20" x2="90" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ea7de"/>
+      <stop offset="0.56" stop-color="#3e78bd"/>
+      <stop offset="1" stop-color="#8b82d3"/>
+    </linearGradient>
+    <filter id="omyt-soft-glow" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#22d3ee" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <g filter="url(#omyt-soft-glow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 21 L57 46 L31 71" stroke="url(#omyt-mark-a)" stroke-width="8"/>
+    <path d="M53 21 L79 46 L53 71" stroke="url(#omyt-mark-b)" stroke-width="8"/>
+  </g>
+  <circle cx="91" cy="46" r="6" fill="#8f8bd8"/>
+  <text x="107" y="59" fill="#111827" font-family="Onest, Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="32" font-weight="900" letter-spacing="-1.4">omyt</text>
+</svg>

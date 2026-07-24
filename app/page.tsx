@@ -1,266 +1,244 @@
-import Link from "next/link";
-import { Send, Columns3, Workflow, Compass, Sparkles, Repeat, OctagonX, ShieldCheck, MousePointerClick, SlidersHorizontal } from "lucide-react";
-import { HeroBackground } from "@/components/HeroBackground";
 import { Reveal } from "@/components/Reveal";
-import { CountUp } from "@/components/CountUp";
+import { BrutalHero } from "@/components/BrutalHero";
+import { Waitlist } from "@/components/Waitlist";
 
-const APP = "https://app.omyt.ai";
+const TICKER = ["Persistent memory", "Semantic model", "Reasons forward", "Set up by hand", "Invite-only", "Local or hosted", "SaaS · Q4 2026"];
 
 export default function Home() {
   return (
     <>
-      {/* ── HERO ───────────────────────────────────────────────────────── */}
-      <section className="hero hero--video">
-        <HeroBackground />
-        <div className="container hero__center">
-          <span className="chip"><span className="dot dot--live" /> Always running · Sales OS</span>
-          <h1 className="display hero__title">
-            The operating layer<br />for <span className="grad-text">go-to-market</span>.
-          </h1>
-          <p className="lede hero__lede">
-            omyt runs your outreach, pipeline, automations, and strategy on one
-            surface — then tells you exactly where to act. Open it, know your move,
-            act from there.
-          </p>
-          <div className="hero__cta">
-            <a href={`${APP}/sign-up`} className="btn btn--primary btn--lg">Start free <span className="arr">→</span></a>
-            <Link href="/product" className="btn btn--ghost btn--lg">See how it works</Link>
-          </div>
-          <div className="hero__note">
-            <span><span className="tick">✓</span> No credit card</span>
-            <span><span className="tick">✓</span> Self-serve — no demo calls</span>
-            <span><span className="tick">✓</span> Live in minutes</span>
-          </div>
-        </div>
-      </section>
+      <BrutalHero />
 
-      {/* ── POSITIONING STRIP ──────────────────────────────────────────── */}
-      <section className="section--tight">
-        <div className="container center">
-          <p className="eyebrow no-rule" style={{ justifyContent: "center" }}>Not a CRM wrapper · Not analytics · Not a copilot bolted on</p>
-          <p className="h3 measure" style={{ marginInline: "auto", marginTop: 14, color: "var(--ink-2)", fontWeight: 600 }}>
-            It's the place a founder runs the whole business — a new category, built for the operator who is also the decision-maker.
-          </p>
-        </div>
-      </section>
-
-      {/* ── STAT BAND ──────────────────────────────────────────────────── */}
-      <section className="section--tight">
+      {/* ── MANIFESTO ──────────────────────────────────────────────────── */}
+      <section className="panel section--tight">
         <div className="container">
-          <Reveal className="stats">
-            <div className="stat"><div className="stat__n"><CountUp to={5} suffix="" /> <span className="u">systems</span></div><div className="stat__l">Outreach, pipeline, automations, strategy, intelligence — one surface</div></div>
-            <div className="stat"><div className="stat__n"><CountUp to={1} /> <span className="u">brain</span></div><div className="stat__l">Reads everything, surfaces what to fix next</div></div>
-            <div className="stat"><div className="stat__n"><CountUp to={24} suffix="/7" /></div><div className="stat__l">Automations that run while you sleep</div></div>
-            <div className="stat"><div className="stat__n"><CountUp to={0} /> <span className="u">busywork</span></div><div className="stat__l">The loop closes itself and learns from every outcome</div></div>
+          <div className="label">// 001 — positioning</div>
+          <Reveal>
+            <h2 className="h1 mt-s" style={{ maxWidth: "18ch" }}>
+              Not a CRM. Not a dashboard.<br />
+              A <span className="acc">world model</span> of your company.
+            </h2>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ── ONE SURFACE, FIVE SYSTEMS ──────────────────────────────────── */}
-      <section className="section">
-        <div className="container">
-          <Reveal className="sec-head">
-            <span className="eyebrow eyebrow--accent">One surface, five systems</span>
-            <h2 className="h2">Everything that moves revenue, in one place.</h2>
-            <p className="lede measure">
-              Most stacks scatter GTM across ten tools that don't talk. omyt unifies
-              them so the data — and the decisions — live together.
+          <Reveal delay={80}>
+            <p className="lede mt-m">
+              Most software stores rows and forgets the meaning. omyt keeps one connected,
+              persistent model of your business — and reasons across all of it at once.
             </p>
           </Reveal>
-
-          <div className="grid cols-3 mt-l">
-            {FEATURES.map((f, i) => (
-              <Reveal key={f.t} delay={i * 70}>
-                <div className="tile feat">
-                  <div className="feat__ico" aria-hidden><f.Icon size={21} strokeWidth={1.75} /></div>
-                  <h3 className="h3">{f.t}</h3>
-                  <p>{f.d}</p>
-                  <ul className="feat__list">{f.points.map((p) => <li key={p}>{p}</li>)}</ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── INTELLIGENCE LAYER ─────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }} id="intelligence">
-        <div className="container">
-          <Reveal className="sec-head">
-            <span className="eyebrow eyebrow--accent">The intelligence layer</span>
-            <h2 className="h2">Three kinds of data, one judgment.</h2>
-            <p className="lede measure">The differentiator isn't more dashboards. It's that omyt fuses signals most tools never connect — and reasons across them.</p>
-          </Reveal>
-
-          <div className="triad mt-l">
-            {TRIAD.map((t, i) => (
-              <Reveal key={t.t} delay={i * 80}>
-                <div className="tile feat">
-                  <div className="feat__ico" aria-hidden>{t.k}</div>
-                  <h3 className="h3">{t.t}</h3>
-                  <p>{t.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      {/* ── TICKER ─────────────────────────────────────────────────────── */}
+      <div className="panel ticker" aria-hidden="true">
+        <div className="ticker__track">
+          {["a", "b"].flatMap((grp) =>
+            TICKER.map((w) => (
+              <span key={`${grp}-${w}`}>{w}<span className="ticker__sep" style={{ marginLeft: 44 }}>»</span></span>
+            )),
+          )}
         </div>
-      </section>
+      </div>
 
-      {/* ── SHOWCASE: BRAIN ────────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }} id="brain">
+      {/* ── THE MODEL (concrete flip) ──────────────────────────────────── */}
+      <section className="panel panel--concrete section" id="model">
         <div className="container">
-          <div className="showrow">
-            <Reveal className="showrow__copy">
-              <span className="eyebrow eyebrow--accent">Sales Brain</span>
-              <h3>It reads your whole operation and tells you the next move.</h3>
-              <p>The Brain scans pipeline, signals, and outcomes — then surfaces the one thing to fix, with the reasoning behind it. You stay the decision-maker; it removes the staring-at-dashboards tax.</p>
-              <ul className="feat__list mt-s">
-                <li>Ranks what's at risk and what's ready to push</li>
-                <li>Explains why — never a black box</li>
-                <li>Proposes plays you approve or veto; it learns from both</li>
-              </ul>
-            </Reveal>
-            <Reveal className="showrow__media" delay={120}>
-              <div className="tile panel">
-                <div className="panel__bar"><span className="panel__dot" style={{ background: "var(--red)" }} /><span className="panel__dot" style={{ background: "var(--amber)" }} /><span className="panel__dot" style={{ background: "var(--emerald)" }} /><span className="panel__title">Brain · priorities</span></div>
-                <div className="row"><div className="row__l"><div className="row__av" style={{ background: "var(--grad-warm)" }}>!</div><div><div className="row__name">Northwind — renewal at risk</div><div className="row__sub">No reply in 9 days · champion went quiet</div></div></div><span className="tag tag--amber">act now</span></div>
-                <div className="row"><div className="row__l"><div className="row__av" style={{ background: "var(--grad-intel)" }}>↑</div><div><div className="row__name">Acme — buying signal detected</div><div className="row__sub">Visited pricing 3× · expand sequence</div></div></div><span className="tag tag--sky">ready</span></div>
-                <div className="row" style={{ marginBottom: 0 }}><div className="row__l"><div className="row__av" style={{ background: "var(--grad-ink)" }}>✓</div><div><div className="row__name">Q3 outreach list refreshed</div><div className="row__sub">214 net-new ICP accounts scored</div></div></div><span className="tag tag--emerald">done</span></div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* ── SHOWCASE: AUTOMATIONS ────────────────────────────────── */}
-          <div className="showrow showrow--flip">
-            <Reveal className="showrow__media">
-              <div className="tile panel">
-                <div className="panel__bar"><span className="panel__dot" /><span className="panel__dot" /><span className="panel__dot" /><span className="panel__title">Automations · running</span></div>
-                <div className="row"><div className="row__l"><div className="row__av" style={{ background: "var(--grad-intel)" }}>✉</div><div><div className="row__name">Cold email — Wave 4</div><div className="row__sub">42 sent today · 6 replies</div></div></div><span className="chip" style={{ height: 26 }}><span className="dot dot--live" /> live</span></div>
-                <div style={{ padding: "4px 2px 12px" }}><div className="bar"><i style={{ width: "84%" }} /></div><div className="row__sub" style={{ marginTop: 7 }}>Daily send budget · 42 / 50 · deliverability healthy</div></div>
-                <div className="row" style={{ marginBottom: 0 }}><div className="row__l"><div className="row__av" style={{ background: "var(--grad-warm)" }}>↺</div><div><div className="row__name">Reply → trial nurture</div><div className="row__sub">Auto-routing positive replies to signup</div></div></div><span className="tag tag--violet">auto</span></div>
-              </div>
-            </Reveal>
-            <Reveal className="showrow__copy" delay={120}>
-              <span className="eyebrow eyebrow--accent">Automations</span>
-              <h3>Work that actually runs — not another to-do list.</h3>
-              <p>Outreach sequences, list-building, reply routing, follow-ups. They execute on their own, inside guardrails you control, and route every positive reply straight toward a self-serve signup. No calls. No meetings. No manual queue.</p>
-              <ul className="feat__list mt-s">
-                <li>Email-first sequences with built-in deliverability limits</li>
-                <li>One emergency stop halts every outbound channel at once</li>
-                <li>Self-serve funnel — replies become trials, not calendar invites</li>
-              </ul>
-            </Reveal>
-          </div>
-
-          {/* ── SHOWCASE: OUTCOMES LOOP ──────────────────────────────── */}
-          <div className="showrow">
-            <Reveal className="showrow__copy">
-              <span className="eyebrow eyebrow--accent">The loop</span>
-              <h3>Every outcome feeds back as a sharper next move.</h3>
-              <p>Won, lost, replied, ignored — omyt records what happened and folds it into the next decision. Your North Star goal sits at the center; everything orbits toward it and compounds over time.</p>
-              <ul className="feat__list mt-s">
-                <li>One six-month goal anchors the whole system</li>
-                <li>Approvals and vetoes train future suggestions</li>
-                <li>The engine gets more right the longer it runs</li>
-              </ul>
-            </Reveal>
-            <Reveal className="showrow__media" delay={120}>
-              <div className="tile panel">
-                <div className="panel__bar"><span className="panel__dot" /><span className="panel__dot" /><span className="panel__dot" /><span className="panel__title">Outcomes · North Star</span></div>
-                <div style={{ padding: "6px 4px 4px" }}>
-                  <div className="row__sub">Progress to 6-month goal</div>
-                  <div className="stat__n" style={{ fontSize: "2.2rem", marginTop: 6 }}><CountUp to={68} suffix="%" /></div>
-                  <div className="bar" style={{ marginTop: 12 }}><i style={{ width: "68%", background: "var(--grad-warm)" }} /></div>
-                </div>
-                <div className="grid cols-2" style={{ marginTop: 14, gap: 8 }}>
-                  <div className="row" style={{ margin: 0, display: "block" }}><div className="row__sub">Pipeline created</div><div className="row__name" style={{ fontSize: 16 }}>+$184k</div></div>
-                  <div className="row" style={{ margin: 0, display: "block" }}><div className="row__sub">Reply → trial</div><div className="row__name" style={{ fontSize: 16 }}>23%</div></div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ───────────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <Reveal className="sec-head sec-head--center">
-            <span className="eyebrow eyebrow--accent" style={{ justifyContent: "center" }}>How it works</span>
-            <h2 className="h2">Live in an afternoon. Compounding from day one.</h2>
-          </Reveal>
-          <Reveal className="steps mt-l">
-            {STEPS.map((s, i) => (
-              <div className="step" key={s.t}>
-                <span className="step__n">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="h3">{s.t}</h3>
-                <p>{s.d}</p>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── GUARDRAILS ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <Reveal className="sec-head">
-            <span className="eyebrow eyebrow--accent">Trust by design</span>
-            <h2 className="h2">Bold doesn't mean reckless.</h2>
-            <p className="lede measure">Automation you'd actually leave running. Every outbound path sits behind guardrails — and one switch.</p>
-          </Reveal>
-          <div className="grid cols-2 mt-l">
-            {GUARDS.map((g, i) => (
-              <Reveal key={g.t} delay={i * 60}>
-                <div className="guard"><span className="guard__ic" aria-hidden><g.Icon size={18} strokeWidth={1.9} /></span><div><b>{g.t}</b><p>{g.d}</p></div></div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ────────────────────────────────────────────────────────── */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <Reveal className="ctaband">
-            <span className="eyebrow eyebrow--accent" style={{ justifyContent: "center" }}>Your move</span>
-            <h2 className="h2" style={{ marginTop: 14 }}>Open omyt. Know exactly where to act.</h2>
-            <p>The operating layer for the founder who runs the whole thing. Start free — you'll be live before your coffee's cold.</p>
-            <div className="ctaband__cta">
-              <a href={`${APP}/sign-up`} className="btn btn--primary btn--lg">Start free <span className="arr">→</span></a>
-              <Link href="/pricing" className="btn btn--ghost btn--lg">See pricing</Link>
+          <div className="sec">
+            <div>
+              <div className="sec__index">// 002 — the idea</div>
+              <h2 className="h2 sec__h">Three words<br />that change<br />what software does.</h2>
             </div>
+            <p className="sec__lede lede">
+              &ldquo;Persistent semantic world model&rdquo; isn&rsquo;t jargon — it&rsquo;s
+              three promises. Read them literally.
+            </p>
+          </div>
+
+          <Reveal className="cards cols-3 grid mt-l">
+            {CONCEPT.map((c, i) => (
+              <div className="card" key={c.word}>
+                <div className="card__n">[{String(i + 1).padStart(2, "0")}]</div>
+                <div className="card__t">{c.word}</div>
+                <p className="card__d">{c.body}</p>
+                <div className="card__list"><li>{c.tag}</li></div>
+              </div>
+            ))}
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── THE LOOP ───────────────────────────────────────────────────── */}
+      <section className="panel section">
+        <div className="container">
+          <div className="sec">
+            <div>
+              <div className="sec__index">// 003 — how it thinks</div>
+              <h2 className="h2 sec__h">One loop,<br />running while<br />you sleep.</h2>
+            </div>
+            <p className="sec__lede lede">
+              Every signal enters the model, becomes structure, and sharpens the next
+              decision. Nothing is thrown away.
+            </p>
+          </div>
+
+          <div className="rows mt-l">
+            {LOOP.map((s, i) => (
+              <Reveal key={s.t} className="row-item" delay={i * 40}>
+                <div className="row-item__n">{String(i + 1).padStart(2, "0")}</div>
+                <div className="row-item__t">{s.t}</div>
+                <div className="row-item__d">{s.d}</div>
+                <div className="row-item__x">↗</div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CAPABILITIES (concrete flip) ───────────────────────────────── */}
+      <section className="panel panel--concrete section">
+        <div className="container">
+          <div className="sec">
+            <div>
+              <div className="sec__index">// 004 — what the model runs</div>
+              <h2 className="h2 sec__h">One brain.<br />Everything that<br />moves revenue.</h2>
+            </div>
+            <p className="sec__lede lede">
+              Not separate tools stitched together — views into a single model. Which is why
+              the data, and the decisions, finally live in one head.
+            </p>
+          </div>
+
+          <Reveal className="cards cols-3 grid mt-l">
+            {FEATURES.map((f, i) => (
+              <div className="card" key={f.t}>
+                <div className="card__n">[{String(i + 1).padStart(2, "0")}]</div>
+                <div className="card__t">{f.t}</div>
+                <p className="card__d">{f.d}</p>
+                <ul className="card__list">{f.points.map((p) => <li key={p}>{p}</li>)}</ul>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── SHOWCASE ───────────────────────────────────────────────────── */}
+      <section className="panel section">
+        <div className="container">
+          <div className="show">
+            <Reveal>
+              <div className="label label--acc">// reasoning, not reporting</div>
+              <h3 className="show__h">It reads the whole model and tells you the one thing to do next.</h3>
+              <p className="show__p">Because every signal lives in the same model, the brain weighs them together — intent, silence, macro, history — and surfaces the highest-value move, with the reasoning attached.</p>
+              <ul className="show__list">
+                <li>Ranks what&rsquo;s at risk and what&rsquo;s ready to push</li>
+                <li>Explains the why — never a black box</li>
+                <li>Proposes plays you approve or veto; learns from both</li>
+              </ul>
+            </Reveal>
+            <Reveal delay={100} className="show__media">
+              <div className="term">
+                <div className="term__bar"><b /> brain // reasoning.log</div>
+                <div className="term__body">
+                  <div className="trow"><div><div className="trow__t">Northwind — renewal at risk</div><div className="trow__s">no reply / 9d · champion quiet</div></div><span className="stat-tag stat-tag--acc">act now</span></div>
+                  <div className="trow"><div><div className="trow__t">Acme — buying signal</div><div className="trow__s">pricing ×3 · expand sequence</div></div><span className="stat-tag">ready</span></div>
+                  <div className="trow"><div><div className="trow__t">Q3 ICP list refreshed</div><div className="trow__s">214 accounts scored &amp; modelled</div></div><span className="stat-tag">done</span></div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="show show--flip">
+            <Reveal className="show__media">
+              <div className="term">
+                <div className="term__bar"><b /> automations // running</div>
+                <div className="term__body">
+                  <div className="trow"><div><div className="trow__t">Cold email — Wave 4</div><div className="trow__s">42 sent · 6 replies</div></div><span className="stat-tag stat-tag--acc">live</span></div>
+                  <div style={{ padding: "10px 0 4px" }}>
+                    <div className="meter"><i style={{ width: "84%" }} /></div>
+                    <div className="trow__s">daily budget · 42 / 50 · deliverability healthy</div>
+                  </div>
+                  <div className="trow"><div><div className="trow__t">Reply → trial nurture</div><div className="trow__s">routing positive replies to signup</div></div><span className="stat-tag">auto</span></div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="label label--acc">// work that runs itself</div>
+              <h3 className="show__h">The model doesn&rsquo;t just advise. It acts.</h3>
+              <p className="show__p">Outreach, list-building, reply routing, follow-ups — they execute on their own, inside guardrails you control, and route every positive reply toward a self-serve signup. No calls. No queue.</p>
+              <ul className="show__list">
+                <li>Email-first sequences with deliverability limits</li>
+                <li>One emergency stop halts every channel at once</li>
+                <li>Replies become trials, not calendar invites</li>
+              </ul>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GUARDRAILS (concrete flip) ─────────────────────────────────── */}
+      <section className="panel panel--concrete section">
+        <div className="container">
+          <div className="sec">
+            <div>
+              <div className="sec__index">// 005 — trust by design</div>
+              <h2 className="h2 sec__h">A brain you&rsquo;d<br />actually leave<br />running.</h2>
+            </div>
+            <p className="sec__lede lede">Every outbound path sits behind guardrails — and one switch. Bold doesn&rsquo;t mean reckless.</p>
+          </div>
+          <Reveal className="cards cols-2 grid mt-l">
+            {GUARDS.map((g, i) => (
+              <div className="card" key={g.t}>
+                <div className="card__n">[{String(i + 1).padStart(2, "0")}]</div>
+                <div className="card__t">{g.t}</div>
+                <p className="card__d">{g.d}</p>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── WAITLIST ───────────────────────────────────────────────────── */}
+      <section className="panel section" id="waitlist">
+        <div className="container">
+          <div className="label label--acc">// waitlist · invite-only</div>
+          <h2 className="dsp cta__h mt-s">Get on<br />the list.</h2>
+          <p className="lede mt-m" style={{ maxWidth: "58ch" }}>
+            We build each brain by hand, one at a time — so access is invite-only for now.
+            Tell us what you need and we&rsquo;ll reach out when yours is ready.{" "}
+            <b style={{ color: "var(--acc)", fontWeight: 600 }}>Hosted SaaS opens Q4 2026.</b>
+          </p>
+          <Reveal className="mt-l"><Waitlist /></Reveal>
         </div>
       </section>
     </>
   );
 }
 
+const CONCEPT = [
+  { word: "Persistent", tag: "memory that compounds", body: "Nothing resets between sessions. Every conversation, deal, and result stays in the model and keeps informing the next decision." },
+  { word: "Semantic", tag: "meaning, not fields", body: "It doesn't just hold data — it holds meaning. It knows a pricing visit, a quiet champion, and a sector tailwind are related, and what that implies." },
+  { word: "World model", tag: "reasons + simulates", body: "One connected picture of your whole business — accounts, market, history — that omyt can think across and run forward, grounded in your world." },
+];
+
+const LOOP = [
+  { t: "Ingest", d: "Deals, replies, site visits, market shifts, outcomes — every signal flows in continuously." },
+  { t: "Model", d: "Signals become structure: entities, relationships, and meaning connected into one living model." },
+  { t: "Reason", d: "The brain weighs the whole model at once and ranks the highest-value next move." },
+  { t: "Act", d: "Automations execute inside your guardrails — outreach, routing, follow-ups. No manual queue." },
+  { t: "Learn", d: "Every result folds back in. The model sharpens, and the next decision is better." },
+];
+
 const FEATURES = [
-  { Icon: Send, t: "Outreach", d: "Email-first sequences that build their own lists, personalize, and send inside deliverability guardrails.", points: ["ICP scoring & enrichment", "Reply classification", "Daily-cap & bounce protection"] },
-  { Icon: Columns3, t: "Pipeline", d: "A CRM that's actually the source of truth — every touch, signal, and stage in one ledger.", points: ["Stage health at a glance", "Risk & next-action scoring", "No busywork data entry"] },
-  { Icon: Workflow, t: "Automations", d: "Background work that runs itself: list-building, follow-ups, reply routing, nurture.", points: ["Always-on, inside guardrails", "One emergency stop", "Self-serve, no calls"] },
-  { Icon: Compass, t: "Strategy", d: "ICP, positioning, moat, risks, and a 90-day plan — kept honest by your real data.", points: ["GTM bets & plays", "Freeze / unfreeze governance", "Approve or veto, granularly"] },
-  { Icon: Sparkles, t: "Intelligence", d: "Micro, macro, and experience data fused into one judgment about what to do next.", points: ["Market & account signals", "Learns from every outcome", "Surfaces, never buries"] },
-  { Icon: Repeat, t: "The loop", d: "Outcomes feed back as new signals, so the system compounds toward your North Star.", points: ["One six-month goal", "Closed-loop learning", "Gets sharper over time"] },
-];
-
-const TRIAD = [
-  { k: "μ", t: "Micro data", d: "Contact- and deal-level signals — who's engaging, who's gone quiet, who's showing intent right now." },
-  { k: "Μ", t: "Macro data", d: "Market and industry trends, shocks, and timing — the weather your accounts are operating in." },
-  { k: "e²", t: "Experience²", d: "Behavioral and interaction history that turns raw activity into judgment about what actually works." },
-];
-
-const STEPS = [
-  { t: "Connect & set your North Star", d: "Drop in your context and name the one six-month goal. omyt builds your strategy spine and scores your ICP." },
-  { t: "Turn on the engine", d: "Approve the first plays. Outreach, list-building, and follow-ups start running inside your guardrails." },
-  { t: "Act from the surface", d: "Open omyt, read the Brain's priorities, push where it points. Every outcome makes the next call sharper." },
+  { t: "Outreach", d: "Email-first sequences that build their own lists, personalize, and send inside deliverability guardrails.", points: ["ICP scoring & enrichment", "Reply classification", "Daily-cap & bounce protection"] },
+  { t: "Pipeline", d: "A CRM that's actually the source of truth — every touch, signal, and stage held in the model.", points: ["Stage health at a glance", "Risk & next-action scoring", "No busywork entry"] },
+  { t: "Automations", d: "Background work that runs itself: list-building, follow-ups, reply routing, nurture.", points: ["Always-on, in guardrails", "One emergency stop", "Self-serve, no calls"] },
+  { t: "Strategy", d: "ICP, positioning, moat, risks, and a 90-day plan — kept honest by your real data.", points: ["GTM bets & plays", "Freeze / unfreeze", "Approve or veto"] },
+  { t: "Intelligence", d: "Micro, macro, and experience data fused into one judgment about what to do next.", points: ["Market & account signals", "Learns from outcomes", "Surfaces, never buries"] },
+  { t: "The loop", d: "Outcomes feed back as new structure, so the model compounds toward your North Star.", points: ["One six-month goal", "Closed-loop learning", "Sharper over time"] },
 ];
 
 const GUARDS = [
-  { Icon: OctagonX, t: "One emergency stop", d: "A single switch halts outreach, auto-replies, transactional email, and direct mail at once — instantly." },
-  { Icon: ShieldCheck, t: "Deliverability guardrails", d: "Per-day send caps, suppression lists, and a bounce-rate circuit breaker protect your domain automatically." },
-  { Icon: MousePointerClick, t: "Self-serve by design", d: "No calls, no meetings, no calendar bookings. Positive replies route straight to a product trial." },
-  { Icon: SlidersHorizontal, t: "You stay in control", d: "Strategy can be frozen. Every AI suggestion is yours to approve or veto — and both train what comes next." },
+  { t: "One emergency stop", d: "A single switch halts outreach, auto-replies, transactional email, and direct mail at once — instantly." },
+  { t: "Deliverability guardrails", d: "Per-day send caps, suppression lists, and a bounce-rate circuit breaker protect your domain automatically." },
+  { t: "Self-serve by design", d: "No calls, no meetings, no calendar bookings. Positive replies route straight to a product trial." },
+  { t: "You stay in control", d: "Strategy can be frozen. Every suggestion is yours to approve or veto — and both train what comes next." },
 ];

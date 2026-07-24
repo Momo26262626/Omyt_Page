@@ -14,6 +14,9 @@
       "preset": "recommended",
       "style": {
         "noDescendingSpecificity": "off"
+      },
+      "suspicious": {
+        "noCommentText": "off"
       }
     }
   },

@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
-import { Onest, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./site.css";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const onest = Onest({
+// Heavy industrial grotesque for the brutalist display + body.
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-onest",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-mono-jb",
   display: "swap",
 });
@@ -22,26 +23,31 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
   title: {
-    default: "omyt — the operating layer for go-to-market",
+    default: "omyt — the company brain with a persistent semantic world model",
     template: "%s · omyt",
   },
   description:
-    "omyt is the operating layer for a founder running a business. Outreach, pipeline, automations, strategy, and intelligence in one surface that's always running — so you open it, know exactly where to act, and act from there.",
-  keywords: ["Sales OS", "GTM engine", "founder", "outreach automation", "pipeline", "sales intelligence"],
+    "omyt is a company brain. It reads every signal from your business — deals, conversations, market, outcomes — and keeps them as one persistent semantic world model it can reason over, so you always know the next move.",
+  keywords: ["company brain", "semantic world model", "AI business operating system", "founder", "outreach automation", "pipeline", "business intelligence"],
   openGraph: {
-    title: "omyt — the operating layer for go-to-market",
+    title: "omyt — the company brain with a persistent semantic world model",
     description:
-      "One surface that runs your outreach, pipeline, automations, and strategy — and tells you where to act.",
+      "One living model of your whole business — reading every signal, remembering it, and reasoning over it to tell you the next move.",
     url: "https://omyt.ai",
     siteName: "omyt",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "omyt — the operating layer for go-to-market",
+    title: "omyt — the company brain",
     description:
-      "One surface that runs your outreach, pipeline, automations, and strategy — and tells you where to act.",
+      "A persistent semantic world model of your business that reads every signal and tells you the next move.",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0d15",
+  colorScheme: "dark",
 };
 
 const jsonLd = {
@@ -53,9 +59,9 @@ const jsonLd = {
       name: "omyt",
       url: "https://omyt.ai",
       email: "hello@omyt.ai",
-      slogan: "The operating layer for go-to-market",
+      slogan: "The company brain — a persistent semantic world model",
       description:
-        "omyt is the operating layer for a founder running a business — outreach, pipeline, automations, strategy, and intelligence on one surface.",
+        "omyt is a company brain that keeps a persistent semantic world model of your business — reading every signal, remembering it, and reasoning over it to surface the next move.",
     },
     {
       "@type": "WebSite",
@@ -70,7 +76,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
-        "A self-serve Sales OS: outreach, pipeline, automations, and strategy unified, with an intelligence layer that surfaces the next best move.",
+        "A company brain that keeps a persistent semantic world model of your business — unifying outreach, pipeline, automations, and strategy under one model that reasons across every signal.",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
   ],
@@ -78,7 +84,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${onest.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${jetbrains.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -88,6 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />
+        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );
