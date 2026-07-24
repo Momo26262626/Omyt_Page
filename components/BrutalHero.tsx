@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BlueprintBrain } from "./BlueprintBrain";
+import { BrainOrganism } from "./BrainOrganism";
 
 /**
  * Brutalist-industrial hero. A bespoke technical line-drawing of a brain
@@ -37,7 +37,7 @@ export function BrutalHero() {
   return (
     <section className="hero">
       <div className="hero__object" ref={objRef} aria-hidden="true">
-        <BlueprintBrain />
+        <BrainOrganism className="hero__brain" />
       </div>
 
       <div className="hero__inner container">
