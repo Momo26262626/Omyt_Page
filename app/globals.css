@@ -152,8 +152,8 @@ img, svg { display: block; max-width: 100%; }
   font-size: clamp(12px, 1.05vw, 14px);
   line-height: 1.85;
   color: var(--dim);
-  border-left: 2px solid var(--acc);
-  padding-left: 16px;
+  border: 1px solid var(--line);
+  padding: 16px 18px;
 }
 .code .k { color: var(--fg); }
 .code .c { color: var(--dim2); }
