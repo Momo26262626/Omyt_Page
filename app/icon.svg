@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img">
+  <title>omyt</title>
+  <defs>
+    <linearGradient id="a" x1="18" y1="22" x2="78" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#44c5e4"/>
+      <stop offset="0.58" stop-color="#2f86c6"/>
+      <stop offset="1" stop-color="#285a9c"/>
+    </linearGradient>
+    <linearGradient id="b" x1="42" y1="20" x2="88" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ea7de"/>
+      <stop offset="0.56" stop-color="#3e78bd"/>
+      <stop offset="1" stop-color="#8b82d3"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" fill="#0e1016"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="11">
+    <path d="M22 26 L47 50 L22 74" stroke="url(#a)"/>
+    <path d="M46 26 L71 50 L46 74" stroke="url(#b)"/>
+  </g>
+  <circle cx="84" cy="50" r="7" fill="#8f8bd8"/>
+</svg>

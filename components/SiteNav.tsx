@@ -11,7 +11,9 @@ const LINKS = [
   { href: "/about", label: "About" },
 ];
 
-const APP_URL = "https://app.omyt.ai";
+// The app currently answers on the apex; set NEXT_PUBLIC_APP_URL to
+// https://app.omyt.ai once the app moves to that subdomain.
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://omyt.ai";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);

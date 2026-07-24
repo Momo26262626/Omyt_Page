@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Wordmark } from "./Wordmark";
 
-const APP_URL = "https://app.omyt.ai";
+// The app currently answers on the apex; set NEXT_PUBLIC_APP_URL to
+// https://app.omyt.ai once the app moves to that subdomain.
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://omyt.ai";
 
 export function SiteFooter() {
   return (

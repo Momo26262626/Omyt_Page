@@ -95,7 +95,7 @@ export function Waitlist() {
         <p className="wl__note">
           {status === "err"
             ? "Something went wrong — email hello@omyt.ai and we'll add you."
-            : "Invite-only while we set up brains by hand. No spam, ever."}
+            : "We only use your details to contact you about access. No spam, ever."}
         </p>
       </div>
     </form>
