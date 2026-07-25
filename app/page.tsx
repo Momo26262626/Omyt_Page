@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { BrutalHero } from "@/components/BrutalHero";
 import { Waitlist } from "@/components/Waitlist";
 
-const TICKER = ["Sources your market", "Wakes dormant records", "For sales & recruiting", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
+const TICKER = ["Knows your whole business", "Sources your market", "Runs sales & marketing", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
 
 export default function Home() {
   return (
@@ -22,10 +22,10 @@ export default function Home() {
           <Reveal delay={80} className="rise">
             <p className="lede mt-m">
               Your pipeline leaks at both ends. Sourcing is slow and shallow, so most of your market
-              never enters it at all. And what did enter is rotting: the candidate who said
-              &ldquo;not right now&rdquo; in 2023, the deal that went quiet, the client you placed
-              once and never called again. Some of them are ready today. You have no way to know
-              which, so you work the fifty you remember and the rest sits there.
+              never enters it at all. And what did enter is rotting: the lead who said &ldquo;not
+              right now&rdquo; in 2023, the deal that went quiet, the customer nobody followed up
+              with after onboarding. Some of them are ready today. You have no way to know which,
+              so you work the fifty you remember and the rest sits there.
             </p>
           </Reveal>
         </div>
@@ -248,7 +248,7 @@ export default function Home() {
           <div className="label label--acc">// waitlist · invite-only</div>
           <h2 className="dsp cta__h mt-s">Get on<br />the list.</h2>
           <p className="lede mt-m" style={{ maxWidth: "58ch" }}>
-            We build each brain by hand, one at a time, against your own CRM or ATS — so access is
+            We build each brain by hand, one at a time, against your own systems — so access is
             invite-only for now. Tell us what you need and we&rsquo;ll reach out when yours is ready.{" "}
             <b style={{ color: "var(--acc)", fontWeight: 600 }}>Hosted SaaS opens Q4 2026.</b>
           </p>
@@ -261,9 +261,9 @@ export default function Home() {
 
 const THOUGHTS = [
   {
-    src: "candidate record · dormant 3 years · employer news",
-    think: "Priya turned this client down in 2023 over the commute. Her employer just mandated four days in office, and two of your open roles are remote and match her stack.",
-    act: "Drafted a re-approach naming both roles and the remote policy. Queued for your approval.",
+    src: "40 sales replies · published content · win/loss",
+    think: "The objection in your last forty sales replies is integration time. Every piece of marketing you publish still leads on price. Sales and marketing are arguing different cases.",
+    act: "Drafted three posts answering the integration objection and queued the positioning change for review.",
   },
   {
     src: "4 threads · renewal in 34d · 2 historical churns",
@@ -271,21 +271,21 @@ const THOUGHTS = [
     act: "Drafted a re-engagement to the economic buyer, not the champion, before the renewal window closes.",
   },
   {
-    src: "market scan · 340 new companies · hiring signals",
-    think: "Fourteen companies opened roles this week that match placements you have made before. None of them are in your database. You have never spoken to any of them.",
-    act: "Enriched all fourteen, identified the hiring manager for each, drafted intros naming the specific role.",
+    src: "market scan · 340 companies · funding + growth signals",
+    think: "Fourteen companies raised this month and match the profile of your best-converting customers. None of them are in your CRM. You have never spoken to any of them.",
+    act: "Enriched all fourteen, found the economic buyer for each, drafted intros naming the trigger.",
   },
 ];
 
 const OUTCOMES = [
-  { t: "Source your whole market", d: "It finds the accounts and candidates worth knowing, enriches them, and scores them against what has actually worked for you — continuously, not in campaign bursts." },
+  { t: "Source your whole market", d: "It finds the accounts worth knowing, enriches them, and scores them against what has actually converted for you — continuously, not in campaign bursts." },
   { t: "Wake the dormant ones", d: "Everyone you have ever touched stays live and watched, including records dormant for years. The reason to call them back arrives the day it appears." },
   { t: "Outreach that already knows", d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation." },
   { t: "Sharper every week", d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them." },
 ];
 
 const ARCH = [
-  { n: "01", t: "Ingest", d: "Connectors to your CRM, ATS, inbox and calendar, plus market and hiring signals. Normalised into one stream.", held: false },
+  { n: "01", t: "Ingest", d: "Connectors to your CRM, inbox, calendar and campaigns, plus market and funding signals. Normalised into one stream.", held: false },
   { n: "02", t: "Semantic layer", d: "Entity resolution, embedding space, relation graph. Where raw records become meaning.", held: true },
   { n: "03", t: "World model", d: "Persistent state and temporal memory — the picture that survives between sessions.", held: false },
   { n: "04", t: "Reasoning", d: "Ranks the highest-value move across the whole model, with the rationale attached.", held: true },

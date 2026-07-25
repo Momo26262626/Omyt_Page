@@ -76,16 +76,16 @@ export function BrutalHero() {
           </div>
           <div className="label">// the company brain</div>
           <h1 className="dsp hero__title stagger mt-s">
-            <span className="ln" style={{ ["--i" as string]: 0 }}>Every lead found.</span>
-            <span className="ln" style={{ ["--i" as string]: 1 }}>Every relationship</span>
-            <span className="ln" style={{ ["--i" as string]: 2 }}>worked<span className="brk">.</span></span>
+            <span className="ln" style={{ ["--i" as string]: 0 }}>Meet omyt.</span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>The company</span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>brain<span className="brk">.</span></span>
           </h1>
           <p className="hero__lede">
-            omyt sources the people worth knowing, understands each one from every signal they give
-            off, and works them —{" "}
-            <span style={{ color: "var(--bone)" }}>alongside the thousands already sitting dormant
-            in your CRM or ATS</span>. Finding, understanding and outreach as one loop, running
-            every day. For sales teams and recruiters.
+            It holds everything your business knows — every account, campaign, thread and outcome —
+            reasons across all of it continuously, and acts on what it concludes.{" "}
+            <span style={{ color: "var(--bone)" }}>Today that means sales and marketing run
+            themselves.</span>{" "}
+            It doesn&rsquo;t stop there.
           </p>
         </div>
 
