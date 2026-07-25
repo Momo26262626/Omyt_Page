@@ -4,6 +4,7 @@ import "./globals.css";
 import "./site.css";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Assistant } from "@/components/Assistant";
 
 // Heavy industrial grotesque for the brutalist display + body.
 const archivo = Archivo({
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />
+        <Assistant />
         <div className="grain" aria-hidden="true" />
       </body>
     </html>
