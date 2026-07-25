@@ -23,7 +23,7 @@ export default function Product() {
           </p>
           <div className="phero__cta">
             <a href="/#waitlist" className="btn btn--primary btn--lg">Join the waitlist <span className="arr">↗</span></a>
-            <Link href="/pricing" className="btn btn--ghost btn--lg">See pricing <span className="arr">↗</span></Link>
+            <Link href="/partners" className="btn btn--ghost btn--lg">Design partners <span className="arr">↗</span></Link>
           </div>
         </div>
       </section>

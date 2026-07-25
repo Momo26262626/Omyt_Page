@@ -28,7 +28,7 @@ export function SiteFooter() {
             <Link href="/product">Overview</Link>
             <Link href="/product#brain">The brain</Link>
             <Link href="/product#intelligence">World model</Link>
-            <Link href="/pricing">Pricing</Link>
+            <Link href="/partners">Design partners</Link>
           </div>
           <div className="footer__col">
             <span className="footer__h">Company</span>
