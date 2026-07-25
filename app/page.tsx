@@ -319,6 +319,6 @@ const FEATURES = [
 const GUARDS = [
   { t: "One emergency stop", d: "A single switch halts outreach, auto-replies, transactional email and direct mail at once — instantly." },
   { t: "Deliverability guardrails", d: "Per-day send caps, suppression lists and a bounce-rate circuit breaker protect your domain automatically." },
-  { t: "Self-serve by design", d: "No calls, no meetings, no calendar bookings. Positive replies route straight to a product trial." },
+  { t: "Nothing sends unseen", d: "Every outbound path can run in draft-only mode, where the brain writes and queues but a human releases. You decide how much rope it gets." },
   { t: "You stay in control", d: "Strategy can be frozen. Every suggestion is yours to approve or veto — and both train what comes next." },
 ];

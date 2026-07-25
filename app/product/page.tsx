@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Product",
   description:
-    "Inside omyt: the persistent semantic world model, the brain that reasons over it, always-on automations, and the loop that folds every outcome back in.",
+    "Inside omyt: how one model holds everything your business knows, reasons across it continuously, and acts — sourcing, outreach, pipeline and marketing in one loop.",
 };
 
 export default function Product() {
@@ -17,9 +17,9 @@ export default function Product() {
           <div className="label label--acc">// the product</div>
           <h1 className="h1 phero__title mt-s">One model.<br />Your whole business,<br />thinking.</h1>
           <p className="lede phero__lede">
-            omyt isn&rsquo;t a tool you check — it&rsquo;s a company brain that runs. Underneath the
-            calm surface, five systems feed one persistent semantic world model, and one closed
-            loop makes it sharper every day.
+            omyt isn&rsquo;t a tool you check, it&rsquo;s a company brain that runs. Five systems feed
+            one model of your business, one brain reasons across all of it, and one closed loop
+            makes it sharper every day. Sales and marketing first.
           </p>
           <div className="phero__cta">
             <a href="/#waitlist" className="btn btn--primary btn--lg">Join the waitlist <span className="arr">↗</span></a>
@@ -127,7 +127,7 @@ export default function Product() {
               <ul className="show__list">
                 <li>Per-day send caps and warm-up pacing</li>
                 <li>Suppression lists and a 7-day bounce circuit breaker</li>
-                <li>Replies classified and routed to a self-serve signup</li>
+                <li>Replies classified, routed, and folded back into the model</li>
                 <li>One emergency stop halts every outbound channel</li>
               </ul>
             </Reveal>

@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Why omyt exists: a company brain for the founder who is both the operator and the decision-maker.",
+  description: "Why omyt exists: every business already knows what it needs to know, but no system holds all of it. omyt is the company brain that does.",
 };
 
 
@@ -16,10 +16,9 @@ export default function About() {
           <div className="label label--acc">// about</div>
           <h1 className="h1 phero__title mt-s">Software forgets.<br />A brain doesn&rsquo;t.</h1>
           <p className="lede phero__lede">
-            Every other GTM tool stores your data in rows and makes you re-assemble the picture
-            every time you open it. We think that&rsquo;s backwards. omyt keeps one persistent
-            model of your business — and reasons over it, so the context is already there when
-            you arrive.
+            Every tool your business runs holds a slice of the truth and forgets the rest. So the
+            picture only exists when a person sits down and reassembles it — which happens rarely,
+            slowly, and never at 4am. omyt keeps that picture permanently, and acts on it.
           </p>
         </div>
       </section>
@@ -30,16 +29,18 @@ export default function About() {
           <div className="label label--acc">// 001 — the thesis</div>
           <Reveal>
             <p className="h1 mt-s" style={{ maxWidth: "20ch", textTransform: "none", lineHeight: 1.08 }}>
-              The operator and the decision-maker have become the <span className="acc">same person</span>.
-              Software hasn&rsquo;t caught up. omyt is the company brain for that person.
+              Your business already knows everything it needs to know. It just{" "}
+              <span className="acc">can&rsquo;t hold it in one place</span>.
             </p>
           </Reveal>
           <Reveal delay={100}>
             <p className="lede mt-l" style={{ maxWidth: "62ch" }}>
-              When the same person sends the email, reads the reply, decides the strategy, and
-              lives with the result, the cost of switching tools and re-stitching context is the
-              whole job. So we collapsed the stack into one persistent semantic world model — and
-              made it run on its own between the moments you show up to decide.
+              The reason a deal stalls is usually sitting in a thread nobody reread. The reason a
+              campaign underperforms is usually in the sales replies nobody sent to marketing. The
+              knowledge exists; the connection doesn&rsquo;t. So we built one model that holds all of
+              it at once and reasons across it continuously, then wired it to the systems that act.
+              Sales and marketing first, because that is where the cost of forgetting is easiest to
+              measure.
             </p>
           </Reveal>
         </div>
@@ -84,11 +85,11 @@ export default function About() {
       <section className="panel section">
         <div className="container">
           <div className="label label--acc">// your move</div>
-          <h2 className="dsp cta__h mt-s">If you run the<br />whole thing,<br />this is for you.</h2>
+          <h2 className="dsp cta__h mt-s">Give your<br />company<br />a brain.</h2>
           <div className="cta__row">
-            <p className="cta__p">Open omyt, set your North Star, and let the brain do the rest.</p>
+            <p className="cta__p">We&rsquo;re building it with a small number of design partners before the hosted version opens in Q4 2026.</p>
             <div className="hero__cta">
-              <a href="/#waitlist" className="btn btn--acc btn--lg">Join the waitlist <span className="arr">↗</span></a>
+              <Link href="/partners" className="btn btn--acc btn--lg">Become a design partner <span className="arr">↗</span></Link>
               <Link href="/product" className="btn btn--ghost btn--lg">See the product <span className="arr">↗</span></Link>
             </div>
           </div>
