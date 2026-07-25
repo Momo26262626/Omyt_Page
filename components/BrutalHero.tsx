@@ -99,6 +99,11 @@ export function BrutalHero() {
               Read the spec <span className="arr">↗</span>
             </a>
           </div>
+          <div className="hero__proof">
+            <span className="hero__proof-dot" aria-hidden />
+            omyt runs omyt. We are our own first customer — this company&rsquo;s go-to-market is
+            sourced, researched and written by the brain.
+          </div>
           <div className="hero__scroll">
             scroll // <span className="mono">{String(pct).padStart(2, "0")}%</span>
           </div>

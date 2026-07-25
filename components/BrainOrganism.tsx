@@ -122,14 +122,15 @@ function core(rng: () => number, count: number, out: Slot[]) {
 function buildSlots(dense: boolean): Slot[] {
   const rng = mulberry32(0x0c0ffee);
   const out: Slot[] = [];
-  // density is what makes the silhouette read as an organ rather than a haze
-  const h = dense ? 2100 : 1250;
+  // density is what makes the silhouette read as an organ rather than a haze;
+  // more points at a smaller radius = higher apparent resolution
+  const h = dense ? 3400 : 1700;
   hemisphere(rng, -1, h, out);
   hemisphere(rng, +1, h, out);
-  cerebellum(rng, dense ? 620 : 380, out);
-  stem(rng, 64, out);
-  corpusCallosum(rng, 140, out);
-  core(rng, 150, out);
+  cerebellum(rng, dense ? 1000 : 520, out);
+  stem(rng, 90, out);
+  corpusCallosum(rng, 200, out);
+  core(rng, 210, out);
   return out;
 }
 
@@ -205,21 +206,35 @@ export function BrainOrganism({ className }: { className?: string }) {
 
       const breath = 0.94 + 0.06 * Math.sin(t * 0.6);
 
-      for (let k = 0; k < n; k++) {
-        const i = orderArr[k];
-        const d = sd[i];
-        // depth fog: far points recede into the void
-        const fog = 0.26 + d * d * 0.74;
-        const r = (0.62 + d * 1.15) * ss[i];
-        if (slots[i].lit) {
-          // the accent minority — records the brain is holding
-          ctx.fillStyle = `rgba(104,206,232,${(fog * 0.98 * breath).toFixed(3)})`;
-        } else {
-          ctx.fillStyle = `rgba(214,219,228,${(fog * 0.8).toFixed(3)})`;
+      /* Two bucketed passes instead of one per-point pass. Setting fillStyle
+         and building an rgba string for every point is what kills the frame
+         rate at this density, so alpha is quantised into BUCKETS and the style
+         is set once per bucket. Depth order is preserved because orderArr is
+         already sorted; base points are laid down first, accents on top.
+         fillRect beats arc() at this size and is visually identical. */
+      const BUCKETS = 20;
+      for (let pass = 0; pass < 2; pass++) {
+        const lit = pass === 1;
+        let bucket = -1;
+        for (let k = 0; k < n; k++) {
+          const i = orderArr[k];
+          if (slots[i].lit !== lit) continue;
+          const d = sd[i];
+          const b = (d * (BUCKETS - 1)) | 0;
+          if (b !== bucket) {
+            bucket = b;
+            const bd = b / (BUCKETS - 1);
+            // steeper falloff than before, so the near surface reads as solid
+            // structure and the far side recedes cleanly instead of hazing
+            const fog = 0.12 + bd * bd * 0.88;
+            ctx.fillStyle = lit
+              ? `rgba(120,214,238,${(fog * breath).toFixed(3)})`
+              : `rgba(222,228,238,${(fog * 0.86).toFixed(3)})`;
+          }
+          // smaller points, more of them — this is what raises apparent detail
+          const s = (0.5 + d * 0.95) * ss[i];
+          ctx.fillRect(sx[i] - s * 0.5, sy[i] - s * 0.5, s, s);
         }
-        ctx.beginPath();
-        ctx.arc(sx[i], sy[i], r, 0, Math.PI * 2);
-        ctx.fill();
       }
     };
 
