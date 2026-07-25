@@ -54,8 +54,8 @@ export function BrutalHero() {
             <div className="label label--acc">// company_brain.spec</div>
             <pre className="code mt-s" aria-hidden="true">
 {`struct CompanyBrain {
-  `}<span className="k">hold</span>{`(every_relationship);
-  `}<span className="k">watch</span>{`(for_the_signal);
+  `}<span className="k">source</span>{`(worth_knowing);
+  `}<span className="k">understand</span>{`(each_one);
   `}<span className="k">act</span>{`(when_ready);
   `}<span className="k">learn</span>{`(from_the_outcome);
 };`}
@@ -76,16 +76,16 @@ export function BrutalHero() {
           </div>
           <div className="label">// the company brain</div>
           <h1 className="dsp hero__title stagger mt-s">
-            <span className="ln" style={{ ["--i" as string]: 0 }}>You have 8,000</span>
-            <span className="ln" style={{ ["--i" as string]: 1 }}>relationships.</span>
-            <span className="ln" style={{ ["--i" as string]: 2 }}>You work<span className="brk">_</span>50<span className="brk">.</span></span>
+            <span className="ln" style={{ ["--i" as string]: 0 }}>Every lead found.</span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>Every relationship</span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>worked<span className="brk">.</span></span>
           </h1>
           <p className="hero__lede">
-            Your CRM and your inbox are full of people worth contacting today. You will never find
-            them by hand. omyt holds{" "}
-            <span style={{ color: "var(--bone)" }}>every relationship you have ever had</span>,
-            watches all of them for the signal that says <em>now</em>, and works the ones that are
-            ready. For sales teams and recruiters.
+            omyt sources the people worth knowing, understands each one from every signal they give
+            off, and works them —{" "}
+            <span style={{ color: "var(--bone)" }}>alongside the thousands already sitting dormant
+            in your CRM or ATS</span>. Finding, understanding and outreach as one loop, running
+            every day. For sales teams and recruiters.
           </p>
         </div>
 

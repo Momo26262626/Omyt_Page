@@ -23,16 +23,16 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
   title: {
-    default: "omyt — you have 8,000 relationships. you work 50.",
+    default: "omyt — every lead found, every relationship worked",
     template: "%s · omyt",
   },
   description:
-    "omyt is a company brain for sales teams and recruiters. It holds every relationship you have ever had, watches all of them for the signal that says now, and works the ones that are ready — including the records dormant for years.",
+    "omyt is a company brain for sales teams and recruiters. It sources the accounts and candidates worth knowing, understands each one from every signal they give off, and works them — alongside the thousands already sitting dormant in your CRM or ATS.",
   keywords: ["company brain", "semantic world model", "AI business operating system", "founder", "outreach automation", "pipeline", "business intelligence"],
   openGraph: {
-    title: "omyt — you have 8,000 relationships. you work 50.",
+    title: "omyt — every lead found, every relationship worked",
     description:
-      "Your CRM and ATS are full of people worth contacting today. omyt finds them, and reaches out — for sales teams and recruiters.",
+      "Sourcing, understanding and outreach as one loop. It builds the book, then works the book — for sales teams and recruiters.",
     url: "https://omyt.ai",
     siteName: "omyt",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "omyt — the company brain",
     description:
-      "Every relationship you have ever had, watched and worked. For sales teams and recruiters.",
+      "It sources your market, understands every lead, and works them all. For sales teams and recruiters.",
   },
 };
 
@@ -59,9 +59,9 @@ const jsonLd = {
       name: "omyt",
       url: "https://omyt.ai",
       email: "hello@omyt.ai",
-      slogan: "Every relationship you have ever had, working",
+      slogan: "Every lead found, every relationship worked",
       description:
-        "omyt is a company brain for sales teams and recruiters that keeps every relationship live, watches for the moment to act, and runs the outreach.",
+        "omyt is a company brain for sales teams and recruiters that sources new leads, understands each one, and runs the outreach — for new and dormant relationships alike.",
     },
     {
       "@type": "WebSite",
@@ -76,7 +76,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
-        "A company brain for sales teams and recruiters: every relationship held, watched for buying or hiring signals, and worked automatically.",
+        "A company brain for sales teams and recruiters: lead sourcing, enrichment, and outreach as one continuous loop over new and existing relationships.",
       // pricing is individual and access is invite-only, so no public offer is advertised
     },
   ],

@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { BrutalHero } from "@/components/BrutalHero";
 import { Waitlist } from "@/components/Waitlist";
 
-const TICKER = ["Every relationship, live", "Dormant records reactivated", "For sales & recruiting", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
+const TICKER = ["Sources your market", "Wakes dormant records", "For sales & recruiting", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
 
 export default function Home() {
   return (
@@ -14,17 +14,18 @@ export default function Home() {
         <div className="container">
           <div className="label">// 001 — the problem</div>
           <Reveal className="rise">
-            <h2 className="h1 mt-s" style={{ maxWidth: "20ch" }}>
-              Your database is a <span className="acc">graveyard</span>.
+            <h2 className="h1 mt-s" style={{ maxWidth: "22ch" }}>
+              The ones you never found. The ones you found and{" "}
+              <span className="acc">forgot</span>.
             </h2>
           </Reveal>
           <Reveal delay={80} className="rise">
             <p className="lede mt-m">
-              Every candidate who said &ldquo;not right now&rdquo; in 2023. Every deal that went
-              quiet. Every client you placed once and never called again. They are all still in
-              there, and some of them are ready today — you just have no way to know which. So you
-              work the fifty you remember, and the rest quietly rot. The money isn&rsquo;t in new
-              leads. It&rsquo;s in the ones you already earned and can&rsquo;t reach.
+              Your pipeline leaks at both ends. Sourcing is slow and shallow, so most of your market
+              never enters it at all. And what did enter is rotting: the candidate who said
+              &ldquo;not right now&rdquo; in 2023, the deal that went quiet, the client you placed
+              once and never called again. Some of them are ready today. You have no way to know
+              which, so you work the fifty you remember and the rest sits there.
             </p>
           </Reveal>
         </div>
@@ -53,7 +54,8 @@ export default function Home() {
             </div>
             <p className="sec__lede lede">
               A thought is what happens when a system holds everything at once: it notices what you
-              would have noticed, if you had been looking at all eight thousand records at 4am.
+              would have noticed, if you had been watching your whole market and your whole database
+              at 4am.
               Each one arrives already attached to the thing to do about it.
             </p>
           </div>
@@ -86,11 +88,11 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 003 — what you get</div>
-              <h2 className="h2 sec__h">Every record<br />working. Not just<br />the ones you recall.</h2>
+              <h2 className="h2 sec__h">It builds the<br />book. Then it<br />works the book.</h2>
             </div>
             <p className="sec__lede lede">
-              omyt keeps every relationship you have ever had alive and watched — then acts the
-              moment one of them is worth a message.
+              Sourcing and outreach stop being separate jobs. One loop finds them, understands them,
+              and reaches out the moment any of them is worth a message.
             </p>
           </div>
 
@@ -269,15 +271,15 @@ const THOUGHTS = [
     act: "Drafted a re-engagement to the economic buyer, not the champion, before the renewal window closes.",
   },
   {
-    src: "1,847 dormant records · live hiring signals",
-    think: "Eleven companies you placed for before are hiring again for roles you have filled successfully. None have been contacted in over a year.",
-    act: "Built the list, drafted eleven notes each naming the specific role, sequenced for Tuesday morning.",
+    src: "market scan · 340 new companies · hiring signals",
+    think: "Fourteen companies opened roles this week that match placements you have made before. None of them are in your database. You have never spoken to any of them.",
+    act: "Enriched all fourteen, identified the hiring manager for each, drafted intros naming the specific role.",
   },
 ];
 
 const OUTCOMES = [
-  { t: "Work the whole book", d: "Not the fifty you remember. Every candidate, client and account you have ever touched stays live, watched, and reachable — including the ones dormant for years." },
-  { t: "Catch the moment", d: "A return-to-office mandate, a funding round, a role reposted, a champion going quiet. The reason to reach out arrives the day it happens, not the quarter after." },
+  { t: "Source your whole market", d: "It finds the accounts and candidates worth knowing, enriches them, and scores them against what has actually worked for you — continuously, not in campaign bursts." },
+  { t: "Wake the dormant ones", d: "Everyone you have ever touched stays live and watched, including records dormant for years. The reason to call them back arrives the day it appears." },
   { t: "Outreach that already knows", d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation." },
   { t: "Sharper every week", d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them." },
 ];
