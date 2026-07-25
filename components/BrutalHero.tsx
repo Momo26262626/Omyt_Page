@@ -54,10 +54,10 @@ export function BrutalHero() {
             <div className="label label--acc">// company_brain.spec</div>
             <pre className="code mt-s" aria-hidden="true">
 {`struct CompanyBrain {
-  `}<span className="k">know</span>{`(everything);
-  `}<span className="k">think</span>{`(continuously);
-  `}<span className="k">act</span>{`(on_every_thought);
-  `}<span className="k">learn</span>{`(from_the_result);
+  `}<span className="k">hold</span>{`(every_relationship);
+  `}<span className="k">watch</span>{`(for_the_signal);
+  `}<span className="k">act</span>{`(when_ready);
+  `}<span className="k">learn</span>{`(from_the_outcome);
 };`}
             </pre>
           </div>
@@ -76,15 +76,16 @@ export function BrutalHero() {
           </div>
           <div className="label">// the company brain</div>
           <h1 className="dsp hero__title stagger mt-s">
-            <span className="ln" style={{ ["--i" as string]: 0 }}>It thinks about</span>
-            <span className="ln" style={{ ["--i" as string]: 1 }}>your business.</span>
-            <span className="ln" style={{ ["--i" as string]: 2 }}>Then<span className="brk">_</span>it acts<span className="brk">.</span></span>
+            <span className="ln" style={{ ["--i" as string]: 0 }}>You have 8,000</span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>relationships.</span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>You work<span className="brk">_</span>50<span className="brk">.</span></span>
           </h1>
           <p className="hero__lede">
-            Every hour, omyt reasons across everything your company knows and forms{" "}
-            <span style={{ color: "var(--bone)" }}>actual thoughts</span> about what is happening —
-            then wires each one straight to execution. Nothing waits for you to notice it. That is
-            how one person out-executes companies ten times their size.
+            Your CRM and your inbox are full of people worth contacting today. You will never find
+            them by hand. omyt holds{" "}
+            <span style={{ color: "var(--bone)" }}>every relationship you have ever had</span>,
+            watches all of them for the signal that says <em>now</em>, and works the ones that are
+            ready. For sales teams and recruiters.
           </p>
         </div>
 

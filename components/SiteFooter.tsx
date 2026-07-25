@@ -17,8 +17,8 @@ export function SiteFooter() {
           <div>
             <span style={{ display: "inline-flex", color: "var(--fg)" }}><Wordmark size={26} /></span>
             <p className="footer__tag" style={{ marginTop: 18 }}>
-              The company brain. It holds everything your company knows, thinks about it
-              continuously, and acts on what it concludes.
+              The company brain for sales teams and recruiters. Every relationship you have ever
+              had, held and watched, and worked the moment it is ready.
             </p>
             <div className="footer__path">omyt.ai / company_brain / v2</div>
           </div>
@@ -47,7 +47,7 @@ export function SiteFooter() {
 
         <div className="footer__bottom">
           <span>© {new Date().getFullYear()} omyt</span>
-          <span>it thinks. then it acts.</span>
+          <span>every relationship, working</span>
         </div>
       </div>
     </footer>

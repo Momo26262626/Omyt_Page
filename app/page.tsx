@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { BrutalHero } from "@/components/BrutalHero";
 import { Waitlist } from "@/components/Waitlist";
 
-const TICKER = ["Learns every customer", "Scales what it learns", "Set up by hand", "Invite-only", "Local or hosted", "SaaS · Q4 2026"];
+const TICKER = ["Every relationship, live", "Dormant records reactivated", "For sales & recruiting", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
 
 export default function Home() {
   return (
@@ -15,17 +15,16 @@ export default function Home() {
           <div className="label">// 001 — the problem</div>
           <Reveal className="rise">
             <h2 className="h1 mt-s" style={{ maxWidth: "20ch" }}>
-              You already understand your customers. You just can&rsquo;t{" "}
-              <span className="acc">hold all of it at once</span>.
+              Your database is a <span className="acc">graveyard</span>.
             </h2>
           </Reveal>
           <Reveal delay={80} className="rise">
             <p className="lede mt-m">
-              The insight is real but it lives in your head, in a thread from March, in a call you
-              half-remember, in a spreadsheet you stopped updating. One person cannot hold a
-              thousand accounts in working memory, and no CRM was built to understand anything —
-              only to store it. So the sharpest thing you know about a customer is the thing least
-              likely to be acted on.
+              Every candidate who said &ldquo;not right now&rdquo; in 2023. Every deal that went
+              quiet. Every client you placed once and never called again. They are all still in
+              there, and some of them are ready today — you just have no way to know which. So you
+              work the fifty you remember, and the rest quietly rot. The money isn&rsquo;t in new
+              leads. It&rsquo;s in the ones you already earned and can&rsquo;t reach.
             </p>
           </Reveal>
         </div>
@@ -54,8 +53,8 @@ export default function Home() {
             </div>
             <p className="sec__lede lede">
               A thought is what happens when a system holds everything at once: it notices what you
-              would have noticed, if you had been looking at all of it, at 4am. Each one arrives
-              already attached to the thing to do about it.
+              would have noticed, if you had been looking at all eight thousand records at 4am.
+              Each one arrives already attached to the thing to do about it.
             </p>
           </div>
 
@@ -87,11 +86,11 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 003 — what you get</div>
-              <h2 className="h2 sec__h">Depth on every<br />account. Not just<br />the ten you recall.</h2>
+              <h2 className="h2 sec__h">Every record<br />working. Not just<br />the ones you recall.</h2>
             </div>
             <p className="sec__lede lede">
-              omyt reads what your customers actually do — and keeps reading, on all of them, at
-              once. Then it acts on what it finds.
+              omyt keeps every relationship you have ever had alive and watched — then acts the
+              moment one of them is worth a message.
             </p>
           </div>
 
@@ -247,7 +246,7 @@ export default function Home() {
           <div className="label label--acc">// waitlist · invite-only</div>
           <h2 className="dsp cta__h mt-s">Get on<br />the list.</h2>
           <p className="lede mt-m" style={{ maxWidth: "58ch" }}>
-            We build each brain by hand, one at a time, against your own sources — so access is
+            We build each brain by hand, one at a time, against your own CRM or ATS — so access is
             invite-only for now. Tell us what you need and we&rsquo;ll reach out when yours is ready.{" "}
             <b style={{ color: "var(--acc)", fontWeight: 600 }}>Hosted SaaS opens Q4 2026.</b>
           </p>
@@ -260,31 +259,31 @@ export default function Home() {
 
 const THOUGHTS = [
   {
-    src: "4 threads · renewal date · 2 historical churns",
+    src: "candidate record · dormant 3 years · employer news",
+    think: "Priya turned this client down in 2023 over the commute. Her employer just mandated four days in office, and two of your open roles are remote and match her stack.",
+    act: "Drafted a re-approach naming both roles and the remote policy. Queued for your approval.",
+  },
+  {
+    src: "4 threads · renewal in 34d · 2 historical churns",
     think: "Northwind's champion has gone quiet for nine days and their renewal lands in thirty-four. The last two accounts that went quiet at exactly this stage churned.",
-    act: "Drafted a re-engagement to the economic buyer, not the champion. Queued for your approval.",
+    act: "Drafted a re-engagement to the economic buyer, not the champion, before the renewal window closes.",
   },
   {
-    src: "3 accounts · sector news · pricing-page behaviour",
-    think: "Three logistics accounts all hit pricing this week. That sector just took a fuel-cost shock, which is the same pattern that preceded your two fastest deals last year.",
-    act: "Built a twelve-account lookalike list in the same sector and sequenced it for Tuesday.",
-  },
-  {
-    src: "40 replies · win/loss history",
-    think: "Your last forty replies argue about integration time, not price. The positioning still leads on cost.",
-    act: "Rewrote the objection block in the live sequence and flagged the positioning change for review.",
+    src: "1,847 dormant records · live hiring signals",
+    think: "Eleven companies you placed for before are hiring again for roles you have filled successfully. None have been contacted in over a year.",
+    act: "Built the list, drafted eleven notes each naming the specific role, sequenced for Tuesday morning.",
   },
 ];
 
 const OUTCOMES = [
-  { t: "Understand every account", d: "Not the ten you happen to remember. omyt reads the whole book continuously — what each customer does, says, ignores, and repeats — and keeps that understanding current." },
-  { t: "Act on what it learns", d: "Knowledge that sits in a dashboard is worth nothing. What the model learns becomes outreach, timing, sequencing and routing that execute on their own." },
-  { t: "Scale past your own hours", d: "One operator can hold a handful of relationships in real depth. The model holds all of them, and works them while you sleep." },
-  { t: "Get sharper every week", d: "Won, lost, replied, ignored — every result updates the model. The understanding compounds instead of resetting, so month six is better than month one." },
+  { t: "Work the whole book", d: "Not the fifty you remember. Every candidate, client and account you have ever touched stays live, watched, and reachable — including the ones dormant for years." },
+  { t: "Catch the moment", d: "A return-to-office mandate, a funding round, a role reposted, a champion going quiet. The reason to reach out arrives the day it happens, not the quarter after." },
+  { t: "Outreach that already knows", d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation." },
+  { t: "Sharper every week", d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them." },
 ];
 
 const ARCH = [
-  { n: "01", t: "Ingest", d: "Connectors, event stream, normalisation. Deals, threads, site behaviour, market data.", held: false },
+  { n: "01", t: "Ingest", d: "Connectors to your CRM, ATS, inbox and calendar, plus market and hiring signals. Normalised into one stream.", held: false },
   { n: "02", t: "Semantic layer", d: "Entity resolution, embedding space, relation graph. Where raw records become meaning.", held: true },
   { n: "03", t: "World model", d: "Persistent state and temporal memory — the picture that survives between sessions.", held: false },
   { n: "04", t: "Reasoning", d: "Ranks the highest-value move across the whole model, with the rationale attached.", held: true },

@@ -23,16 +23,16 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
   title: {
-    default: "omyt — it thinks about your business, then it acts",
+    default: "omyt — you have 8,000 relationships. you work 50.",
     template: "%s · omyt",
   },
   description:
-    "omyt is a company brain: it holds everything your company knows, reasons across all of it continuously to form real thoughts about what is happening, and wires each thought straight to execution. Nothing waits for you to notice it.",
+    "omyt is a company brain for sales teams and recruiters. It holds every relationship you have ever had, watches all of them for the signal that says now, and works the ones that are ready — including the records dormant for years.",
   keywords: ["company brain", "semantic world model", "AI business operating system", "founder", "outreach automation", "pipeline", "business intelligence"],
   openGraph: {
-    title: "omyt — it thinks about your business, then it acts",
+    title: "omyt — you have 8,000 relationships. you work 50.",
     description:
-      "It reasons across everything your company knows, forms actual thoughts about what is happening, and acts on them. That is how one person out-executes companies ten times their size.",
+      "Your CRM and ATS are full of people worth contacting today. omyt finds them, and reaches out — for sales teams and recruiters.",
     url: "https://omyt.ai",
     siteName: "omyt",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "omyt — the company brain",
     description:
-      "A company brain that thinks about your business continuously, and acts on what it concludes.",
+      "Every relationship you have ever had, watched and worked. For sales teams and recruiters.",
   },
 };
 
@@ -59,9 +59,9 @@ const jsonLd = {
       name: "omyt",
       url: "https://omyt.ai",
       email: "hello@omyt.ai",
-      slogan: "It thinks about your business, then it acts",
+      slogan: "Every relationship you have ever had, working",
       description:
-        "omyt is a company brain that reasons continuously across everything the company knows and connects each conclusion directly to execution.",
+        "omyt is a company brain for sales teams and recruiters that keeps every relationship live, watches for the moment to act, and runs the outreach.",
     },
     {
       "@type": "WebSite",
@@ -76,7 +76,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
-        "A company brain that learns every customer continuously and scales that understanding into outreach, pipeline, automations and strategy.",
+        "A company brain for sales teams and recruiters: every relationship held, watched for buying or hiring signals, and worked automatically.",
       // pricing is individual and access is invite-only, so no public offer is advertised
     },
   ],
