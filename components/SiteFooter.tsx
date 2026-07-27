@@ -14,10 +14,12 @@ export function SiteFooter() {
 
         <div className="footer__mid">
           <div>
-            <span style={{ display: "inline-flex", color: "var(--fg)" }}><Wordmark size={26} /></span>
+            <span style={{ display: "inline-flex", color: "var(--fg)" }}>
+              <Wordmark size={26} />
+            </span>
             <p className="footer__tag" style={{ marginTop: 18 }}>
-              The company brain. It holds everything your business knows, reasons across all of
-              it, and acts on what it concludes — starting with sales and marketing.
+              The company brain. It holds everything your business knows, reasons across all of it,
+              and acts on what it concludes — starting with sales and marketing.
             </p>
             <div className="footer__path">omyt.ai / company_brain / v2</div>
           </div>

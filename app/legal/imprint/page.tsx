@@ -11,15 +11,20 @@ export default function Imprint() {
     <section className="panel phero section">
       <div className="container">
         <div className="label label--acc">// imprint · § 5 DDG</div>
-        <h1 className="h1 mt-s" style={{ maxWidth: "14ch" }}>Imprint.</h1>
+        <h1 className="h1 mt-s" style={{ maxWidth: "14ch" }}>
+          Imprint.
+        </h1>
 
         <div className="prose mt-l">
           <h2>Provider</h2>
           <p>
-            Cedric Udegbe<br />
-            omyt (sole proprietorship)<br />
+            Cedric Udegbe
+            <br />
+            omyt (sole proprietorship)
+            <br />
             Johannisplatz 3<br />
-            10117 Berlin<br />
+            10117 Berlin
+            <br />
             Germany
           </p>
 
@@ -33,8 +38,8 @@ export default function Imprint() {
 
           <h2>VAT</h2>
           <p>
-            Under the small business regulation (Section 19 of the German VAT Act, UStG), no VAT
-            is charged and no VAT identification number is held.
+            Under the small business regulation (Section 19 of the German VAT Act, UStG), no VAT is
+            charged and no VAT identification number is held.
           </p>
 
           <h2>Online dispute resolution</h2>

@@ -53,11 +53,19 @@ export function BrutalHero() {
           <div className="hero__spec">
             <div className="label label--acc">// company_brain.spec</div>
             <pre className="code mt-s" aria-hidden="true">
-{`struct CompanyBrain {
-  `}<span className="k">source</span>{`(worth_knowing);
-  `}<span className="k">understand</span>{`(each_one);
-  `}<span className="k">act</span>{`(when_ready);
-  `}<span className="k">learn</span>{`(from_the_outcome);
+              {`struct CompanyBrain {
+  `}
+              <span className="k">source</span>
+              {`(worth_knowing);
+  `}
+              <span className="k">understand</span>
+              {`(each_one);
+  `}
+              <span className="k">act</span>
+              {`(when_ready);
+  `}
+              <span className="k">learn</span>
+              {`(from_the_outcome);
 };`}
             </pre>
           </div>
@@ -76,15 +84,22 @@ export function BrutalHero() {
           </div>
           <div className="label">// the company brain</div>
           <h1 className="dsp hero__title stagger mt-s">
-            <span className="ln" style={{ ["--i" as string]: 0 }}>Meet omyt.</span>
-            <span className="ln" style={{ ["--i" as string]: 1 }}>The company</span>
-            <span className="ln" style={{ ["--i" as string]: 2 }}>brain<span className="brk">.</span></span>
+            <span className="ln" style={{ ["--i" as string]: 0 }}>
+              Meet omyt.
+            </span>
+            <span className="ln" style={{ ["--i" as string]: 1 }}>
+              The company
+            </span>
+            <span className="ln" style={{ ["--i" as string]: 2 }}>
+              brain<span className="brk">.</span>
+            </span>
           </h1>
           <p className="hero__lede">
             It holds everything your business knows — every account, campaign, thread and outcome —
             reasons across all of it continuously, and acts on what it concludes.{" "}
-            <span style={{ color: "var(--bone)" }}>Today that means sales and marketing run
-            themselves.</span>{" "}
+            <span style={{ color: "var(--bone)" }}>
+              Today that means sales and marketing run themselves.
+            </span>{" "}
             It doesn&rsquo;t stop there.
           </p>
         </div>

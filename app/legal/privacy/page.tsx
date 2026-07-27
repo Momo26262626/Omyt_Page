@@ -11,26 +11,29 @@ export default function Privacy() {
     <section className="panel phero section">
       <div className="container">
         <div className="label label--acc">// privacy · gdpr</div>
-        <h1 className="h1 mt-s" style={{ maxWidth: "16ch" }}>Privacy Policy.</h1>
+        <h1 className="h1 mt-s" style={{ maxWidth: "16ch" }}>
+          Privacy Policy.
+        </h1>
 
         <div className="prose mt-l">
           <p className="prose__lead">
-            This policy covers this website (omyt.ai) only. We collect as little as possible:
-            there are <b>no cookies, no analytics, and no third-party trackers</b> on this site.
-            The only personal data we ask for is what you type into the waitlist form.
+            This policy covers this website (omyt.ai) only. We collect as little as possible: there
+            are <b>no cookies, no analytics, and no third-party trackers</b> on this site. The only
+            personal data we ask for is what you type into the waitlist form.
           </p>
 
           <h2>1. Controller</h2>
           <p>
-            Cedric Udegbe, omyt (sole proprietorship), Johannisplatz 3, 10117 Berlin, Germany.<br />
+            Cedric Udegbe, omyt (sole proprietorship), Johannisplatz 3, 10117 Berlin, Germany.
+            <br />
             Email: <a href="mailto:hello@omyt.ai">hello@omyt.ai</a>
           </p>
 
           <h2>2. What we collect</h2>
           <p>
-            <b>Waitlist form.</b> When you request an invite we process the name, email address,
-            the free-text description of what you need, your choice of local or hosted setup, and
-            the time of submission. All of it is voluntary — the form is the only place we ask for
+            <b>Waitlist form.</b> When you request an invite we process the name, email address, the
+            free-text description of what you need, your choice of local or hosted setup, and the
+            time of submission. All of it is voluntary — the form is the only place we ask for
             personal data.
           </p>
           <p>
@@ -53,18 +56,20 @@ export default function Privacy() {
           </ul>
 
           <h2>4. Who processes it for us</h2>
-          <p>
-            We use a small number of processors under Art. 28 GDPR data processing agreements:
-          </p>
+          <p>We use a small number of processors under Art. 28 GDPR data processing agreements:</p>
           <ul>
-            <li><b>Vercel Inc.</b> (USA) — website hosting and server logs.</li>
-            <li><b>Resend</b> (USA) — delivery of the notification email containing your submission.</li>
+            <li>
+              <b>Vercel Inc.</b> (USA) — website hosting and server logs.
+            </li>
+            <li>
+              <b>Resend</b> (USA) — delivery of the notification email containing your submission.
+            </li>
           </ul>
           <p>
             Both are located in the United States, so your data is transferred outside the EEA.
-            These transfers are covered by the EU&ndash;US Data Privacy Framework and/or the European
-            Commission&rsquo;s Standard Contractual Clauses (Art. 45/46 GDPR). We do not sell personal
-            data or share it with anyone else.
+            These transfers are covered by the EU&ndash;US Data Privacy Framework and/or the
+            European Commission&rsquo;s Standard Contractual Clauses (Art. 45/46 GDPR). We do not
+            sell personal data or share it with anyone else.
           </p>
 
           <h2>5. How long we keep it</h2>
@@ -97,8 +102,8 @@ export default function Privacy() {
 
           <h2>7. Cookies and tracking</h2>
           <p>
-            This site sets no cookies and runs no analytics, advertising, or tracking scripts.
-            That is why you are not seeing a cookie banner — there is nothing to consent to.
+            This site sets no cookies and runs no analytics, advertising, or tracking scripts. That
+            is why you are not seeing a cookie banner — there is nothing to consent to.
           </p>
 
           <h2>8. Changes</h2>

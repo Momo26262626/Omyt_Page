@@ -45,15 +45,24 @@ type TypeEvent = { t: number; txt: string };
 type Unit = {
   hero: boolean;
   birth: number; // mitosis spawn time
-  ox: number; oy: number; osize: number; // spawn origin (parent at birth)
-  sx: number; sy: number; size: number; // scatter slot
+  ox: number;
+  oy: number;
+  osize: number; // spawn origin (parent at birth)
+  sx: number;
+  sy: number;
+  size: number; // scatter slot
   arc: number; // perpendicular arc amp for the spawn flight
   variant: number; // sprite variant index
-  spinPh: number; spinSp: number; wob: number;
-  phi0: number; r0: number; // vortex polar (ellipse-normalized)
+  spinPh: number;
+  spinSp: number;
+  wob: number;
+  phi0: number;
+  r0: number; // vortex polar (ellipse-normalized)
   vstart: number; // when this unit joins the vortex
   dep: number; // vortex departure → logo
-  tx: number; ty: number; dotC: string; // logo landing point + color
+  tx: number;
+  ty: number;
+  dotC: string; // logo landing point + color
   orbiter: boolean; // survives the snap, orbits the brand forever
   orbIdx: number; // evenly spreads the orbiters around the brand
 };
@@ -79,7 +88,13 @@ const easeInCubic = (u: number) => u * u * u;
 
 /* screen power-on flicker envelope, 0→1 over 0.8s */
 const FLICKER: [number, number][] = [
-  [0, 0], [0.1, 0.75], [0.18, 0.1], [0.3, 0.95], [0.42, 0.5], [0.56, 1], [1, 1],
+  [0, 0],
+  [0.1, 0.75],
+  [0.18, 0.1],
+  [0.3, 0.95],
+  [0.42, 0.5],
+  [0.56, 1],
+  [1, 1],
 ];
 function flickerEnv(u: number) {
   if (u <= 0) return 0;
@@ -187,10 +202,15 @@ function drawMac(
     if (screenText) {
       // live-typed email (hero only) — find the current snapshot
       const { events, t, mono } = screenText;
-      let lo = 0, hi = events.length - 1, idx = -1;
+      let lo = 0,
+        hi = events.length - 1,
+        idx = -1;
       while (lo <= hi) {
         const mid = (lo + hi) >> 1;
-        if (events[mid].t <= t) { idx = mid; lo = mid + 1; } else hi = mid - 1;
+        if (events[mid].t <= t) {
+          idx = mid;
+          lo = mid + 1;
+        } else hi = mid - 1;
       }
       const txt = idx >= 0 ? events[idx].txt : "";
       const lines = txt.split("\n");
@@ -260,7 +280,9 @@ export function TurnHero() {
     const MONO = pick("--font-mono-jb", "ui-monospace, SFMono-Regular, monospace");
     const SANS = pick("--font-onest", "system-ui, sans-serif");
 
-    let w = 0, h = 0, dpr = 1;
+    let w = 0,
+      h = 0,
+      dpr = 1;
     let raf = 0;
     let running = true;
     let disposed = false;
@@ -285,9 +307,17 @@ export function TurnHero() {
     let drawOrder: number[] = [];
     let sprites: HTMLCanvasElement[] = [];
     const SPRITE_H = 96;
-    let heroX = 0, heroY = 0, heroH = 300;
-    let cx = 0, cyS = 0, ellX = 1, ellY = 1, rMax = 1;
-    let brandCX = 0, brandCY = 0, brandScale = 1;
+    let heroX = 0,
+      heroY = 0,
+      heroH = 300;
+    let cx = 0,
+      cyS = 0,
+      ellX = 1,
+      ellY = 1,
+      rMax = 1;
+    let brandCX = 0,
+      brandCY = 0,
+      brandScale = 1;
     let shadowY = 0;
 
     const bakeSprites = () => {
@@ -421,7 +451,10 @@ export function TurnHero() {
       const { pts } = sampleLogo();
       // thin the samples to ≤ N, keep coverage even
       const keep = Math.min(pts.length, N);
-      const targets = Array.from({ length: keep }, (_, i) => pts[Math.floor((i * pts.length) / keep)]);
+      const targets = Array.from(
+        { length: keep },
+        (_, i) => pts[Math.floor((i * pts.length) / keep)],
+      );
 
       const genOf = (i: number) => (i === 0 ? 0 : Math.min(7, Math.floor(Math.log2(i + 1))));
       const shuffle = (arr: number[]) => {
@@ -440,7 +473,10 @@ export function TurnHero() {
         const th = i * GOLD;
         return {
           x: Math.min(w - 34, Math.max(34, cx + rr * Math.cos(th) * ellX + (rnd() - 0.5) * 26)),
-          y: Math.min(h - 40, Math.max(copyBottom + 14, cyS + rr * Math.sin(th) * ellY + (rnd() - 0.5) * 22)),
+          y: Math.min(
+            h - 40,
+            Math.max(copyBottom + 14, cyS + rr * Math.sin(th) * ellY + (rnd() - 0.5) * 22),
+          ),
         };
       });
       const slotOf = shuffle(Array.from({ length: N }, (_, i) => i));
@@ -459,8 +495,12 @@ export function TurnHero() {
         units.push({
           hero: i === 0,
           birth,
-          ox: 0, oy: 0, osize: 0, // parent-dependent, filled below
-          sx, sy, size,
+          ox: 0,
+          oy: 0,
+          osize: 0, // parent-dependent, filled below
+          sx,
+          sy,
+          size,
           arc: (rnd() < 0.5 ? -1 : 1) * (16 + rnd() * 30),
           variant: 1 + ((rnd() * 3) | 0),
           spinPh: rnd() * Math.PI * 2,
@@ -490,7 +530,9 @@ export function TurnHero() {
         const u = units[i];
         u.vstart = Math.max(T_VORTEX, u.birth + FLIGHT);
         if (i === 0) {
-          u.ox = heroX; u.oy = heroY; u.osize = heroH;
+          u.ox = heroX;
+          u.oy = heroY;
+          u.osize = heroH;
           continue;
         }
         const parent = units[((i - 1) / 2) | 0]; // binary-tree parenting
@@ -498,7 +540,10 @@ export function TurnHero() {
         const pe = easeOutCubic(pu);
         u.ox = lerp(parent.hero ? heroX : parent.ox, parent.sx, pe);
         u.oy = lerp(parent.hero ? heroY : parent.oy, parent.sy, pe);
-        u.osize = Math.max(u.size * 0.4, lerp(parent.hero ? heroH : parent.osize, parent.size, pe) * 0.55);
+        u.osize = Math.max(
+          u.size * 0.4,
+          lerp(parent.hero ? heroH : parent.osize, parent.size, pe) * 0.55,
+        );
       }
       drawOrder = Array.from({ length: N }, (_, i) => i)
         .filter((i) => i !== 0)
@@ -515,9 +560,14 @@ export function TurnHero() {
     };
 
     type US = {
-      x: number; y: number; size: number;
-      flip: number; rot: number; alpha: number;
-      glow: number; dot: number; // dot = 0 computer … 1 pure dot
+      x: number;
+      y: number;
+      size: number;
+      flip: number;
+      rot: number;
+      alpha: number;
+      glow: number;
+      dot: number; // dot = 0 computer … 1 pure dot
     };
 
     const vortexPos = (u: Unit, t: number) => {
@@ -539,14 +589,19 @@ export function TurnHero() {
         return { x: heroX, y: heroY, size: heroH, flip: 1, rot: 0, alpha: 1, glow: 0, dot: 0 };
       }
       if (t < u.dep) {
-        let x: number, y: number, size: number, alpha = 1, glow = 1;
+        let x: number,
+          y: number,
+          size: number,
+          alpha = 1,
+          glow = 1;
         if (t < u.birth + FLIGHT) {
           const fu = clamp01((t - u.birth) / FLIGHT);
           const fe = easeOutCubic(fu);
           x = lerp(u.ox, u.sx, fe);
           y = lerp(u.oy, u.sy, fe);
           // arc perpendicular to the travel direction
-          const dx = u.sx - u.ox, dy = u.sy - u.oy;
+          const dx = u.sx - u.ox,
+            dy = u.sy - u.oy;
           const dl = Math.hypot(dx, dy) || 1;
           const bump = Math.sin(Math.PI * fu) * u.arc;
           x += (-dy / dl) * bump;
@@ -619,14 +674,20 @@ export function TurnHero() {
         const fx = Math.max(0.08, Math.abs(st.flip)) * Math.sign(st.flip || 1);
         ctx.scale(fx, 1);
         // dim while edge-on so the tumble reads as 3D, not a stray line
-        ctx.globalAlpha = st.alpha * (1 - st.dot) * (0.4 + 0.6 * Math.min(1, Math.abs(st.flip) * 1.6));
+        ctx.globalAlpha =
+          st.alpha * (1 - st.dot) * (0.4 + 0.6 * Math.min(1, Math.abs(st.flip) * 1.6));
         if (u.hero && st.size > 90) {
           const env = flickerEnv((t - T_ON) / 0.8);
-          drawMac(ctx, st.size, { glow: env, color: INDIGO }, {
-            events: typing.events,
-            t,
-            mono: MONO,
-          });
+          drawMac(
+            ctx,
+            st.size,
+            { glow: env, color: INDIGO },
+            {
+              events: typing.events,
+              t,
+              mono: MONO,
+            },
+          );
         } else {
           const spr = sprites[st.glow > 0.4 ? u.variant : 0];
           if (spr) {
@@ -715,7 +776,10 @@ export function TurnHero() {
       replayBtn.classList.remove("is-on");
       t0 = performance.now();
       lastNow = t0;
-      if (!running) { running = true; raf = requestAnimationFrame(loop); }
+      if (!running) {
+        running = true;
+        raf = requestAnimationFrame(loop);
+      }
     };
 
     // fonts affect both the typed email and the sampled wordmark
@@ -778,9 +842,15 @@ export function TurnHero() {
             </a>
           </div>
           <div className="turnhero__note">
-            <span><span className="tick">✓</span> No credit card</span>
-            <span><span className="tick">✓</span> Self-serve</span>
-            <span><span className="tick">✓</span> Live in minutes</span>
+            <span>
+              <span className="tick">✓</span> No credit card
+            </span>
+            <span>
+              <span className="tick">✓</span> Self-serve
+            </span>
+            <span>
+              <span className="tick">✓</span> Live in minutes
+            </span>
           </div>
         </div>
         <div className="turnhero__stagewrap" aria-hidden="true">

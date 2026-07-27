@@ -27,9 +27,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "bad_json" }, { status: 400 });
   }
 
-  const name = String(body?.name ?? "").trim().slice(0, 120);
-  const email = String(body?.email ?? "").trim().slice(0, 200);
-  const need = String(body?.need ?? "").trim().slice(0, 2000);
+  const name = String(body?.name ?? "")
+    .trim()
+    .slice(0, 120);
+  const email = String(body?.email ?? "")
+    .trim()
+    .slice(0, 200);
+  const need = String(body?.need ?? "")
+    .trim()
+    .slice(0, 2000);
   const raw = String(body?.mode ?? "");
   const mode = raw === "saas" ? "saas" : raw === "local" ? "local" : "unsure";
 
@@ -75,7 +81,8 @@ async function notifyEmail(e: Entry): Promise<void> {
         text,
       }),
     });
-    if (!res.ok) console.error("[waitlist] resend failed", res.status, await res.text().catch(() => ""));
+    if (!res.ok)
+      console.error("[waitlist] resend failed", res.status, await res.text().catch(() => ""));
   } catch (err) {
     console.error("[waitlist] resend error", err);
   }

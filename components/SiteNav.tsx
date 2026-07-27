@@ -49,7 +49,9 @@ export function SiteNav() {
         </nav>
 
         <div className="nav__actions">
-          <a href={APP_URL} className="nav__signin">Sign in</a>
+          <a href={APP_URL} className="nav__signin">
+            Sign in
+          </a>
           <a href="/#waitlist" className="nav__cta">
             <span>Join waitlist</span> ↗
           </a>
@@ -60,14 +62,18 @@ export function SiteNav() {
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            <span /><span /><span />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </div>
 
       <div className={`nav__sheet ${open ? "is-open" : ""}`}>
         {LINKS.map((l) => (
-          <Link key={l.href} href={l.href} className="nav__sheet-link">{l.label}</Link>
+          <Link key={l.href} href={l.href} className="nav__sheet-link">
+            {l.label}
+          </Link>
         ))}
         <a href="/#waitlist" className="btn btn--primary" style={{ marginTop: 8 }}>
           Join waitlist <span className="arr">↗</span>

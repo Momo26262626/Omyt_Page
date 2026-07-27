@@ -2,7 +2,14 @@ import { Reveal } from "@/components/Reveal";
 import { BrutalHero } from "@/components/BrutalHero";
 import { Waitlist } from "@/components/Waitlist";
 
-const TICKER = ["Knows your whole business", "Sources your market", "Runs sales & marketing", "Set up by hand", "Invite-only", "SaaS · Q4 2026"];
+const TICKER = [
+  "Knows your whole business",
+  "Sources your market",
+  "Runs sales & marketing",
+  "Set up by hand",
+  "Invite-only",
+  "SaaS · Q4 2026",
+];
 
 export default function Home() {
   return (
@@ -15,8 +22,7 @@ export default function Home() {
           <div className="label">// 001 — the problem</div>
           <Reveal className="rise">
             <h2 className="h1 mt-s" style={{ maxWidth: "22ch" }}>
-              The ones you never found. The ones you found and{" "}
-              <span className="acc">forgot</span>.
+              The ones you never found. The ones you found and <span className="acc">forgot</span>.
             </h2>
           </Reveal>
           <Reveal delay={80} className="rise">
@@ -24,8 +30,8 @@ export default function Home() {
               Your pipeline leaks at both ends. Sourcing is slow and shallow, so most of your market
               never enters it at all. And what did enter is rotting: the lead who said &ldquo;not
               right now&rdquo; in 2023, the deal that went quiet, the customer nobody followed up
-              with after onboarding. Some of them are ready today. You have no way to know which,
-              so you work the fifty you remember and the rest sits there.
+              with after onboarding. Some of them are ready today. You have no way to know which, so
+              you work the fifty you remember and the rest sits there.
             </p>
           </Reveal>
         </div>
@@ -37,7 +43,12 @@ export default function Home() {
           <div className="ticker__track">
             {["a", "b"].flatMap((grp) =>
               TICKER.map((w) => (
-                <span key={`${grp}-${w}`}>{w}<span className="ticker__sep" style={{ marginLeft: 44 }}>»</span></span>
+                <span key={`${grp}-${w}`}>
+                  {w}
+                  <span className="ticker__sep" style={{ marginLeft: 44 }}>
+                    »
+                  </span>
+                </span>
               )),
             )}
           </div>
@@ -50,13 +61,18 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 002 — what a thought looks like</div>
-              <h2 className="h2 sec__h">Most software<br />stores. This<br />one thinks.</h2>
+              <h2 className="h2 sec__h">
+                Most software
+                <br />
+                stores. This
+                <br />
+                one thinks.
+              </h2>
             </div>
             <p className="sec__lede lede">
               A thought is what happens when a system holds everything at once: it notices what you
               would have noticed, if you had been watching your whole market and your whole database
-              at 4am.
-              Each one arrives already attached to the thing to do about it.
+              at 4am. Each one arrives already attached to the thing to do about it.
             </p>
           </div>
 
@@ -69,7 +85,9 @@ export default function Home() {
                 </div>
                 <p className="thought__body">{t.think}</p>
                 <div className="thought__act">
-                  <span className="thought__arrow" aria-hidden>→</span>
+                  <span className="thought__arrow" aria-hidden>
+                    →
+                  </span>
                   <span className="thought__actlabel">acted</span>
                   <span className="thought__acttext">{t.act}</span>
                 </div>
@@ -88,7 +106,13 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 003 — what you get</div>
-              <h2 className="h2 sec__h">It builds the<br />book. Then it<br />works the book.</h2>
+              <h2 className="h2 sec__h">
+                It builds the
+                <br />
+                book. Then it
+                <br />
+                works the book.
+              </h2>
             </div>
             <p className="sec__lede lede">
               Sourcing and outreach stop being separate jobs. One loop finds them, understands them,
@@ -115,7 +139,12 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 004 — architecture, abridged</div>
-              <h2 className="h2 sec__h">This is a<br />real system.<br />Here&rsquo;s its shape.</h2>
+              <h2 className="h2 sec__h">
+                This is a<br />
+                real system.
+                <br />
+                Here&rsquo;s its shape.
+              </h2>
             </div>
             <p className="sec__lede lede">
               Six layers, each doing one job. We publish the structure because it&rsquo;s what makes
@@ -146,7 +175,13 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 005 — how it&rsquo;s done</div>
-              <h2 className="h2 sec__h">A persistent<br />semantic<br />world model.</h2>
+              <h2 className="h2 sec__h">
+                A persistent
+                <br />
+                semantic
+                <br />
+                world model.
+              </h2>
             </div>
             <p className="sec__lede lede">
               That phrase is the reason the understanding compounds instead of resetting. Three
@@ -157,8 +192,12 @@ export default function Home() {
           <Reveal className="concept mt-l">
             {CONCEPT.map((c, i) => (
               <div className="concept__cell" key={c.word}>
-                <div className="concept__word">[{String(i + 1).padStart(2, "0")}] {c.word}</div>
-                <div className="concept__h">{c.lead} <b>{c.emph}</b></div>
+                <div className="concept__word">
+                  [{String(i + 1).padStart(2, "0")}] {c.word}
+                </div>
+                <div className="concept__h">
+                  {c.lead} <b>{c.emph}</b>
+                </div>
                 <p className="concept__p">{c.body}</p>
               </div>
             ))}
@@ -172,7 +211,13 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 006 — the loop</div>
-              <h2 className="h2 sec__h">Every outcome<br />makes the next<br />call sharper.</h2>
+              <h2 className="h2 sec__h">
+                Every outcome
+                <br />
+                makes the next
+                <br />
+                call sharper.
+              </h2>
             </div>
             <p className="sec__lede lede">
               Signals enter, become structure, drive a decision, and the result folds back in.
@@ -199,7 +244,13 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 007 — what it runs</div>
-              <h2 className="h2 sec__h">One brain.<br />Everything that<br />moves revenue.</h2>
+              <h2 className="h2 sec__h">
+                One brain.
+                <br />
+                Everything that
+                <br />
+                moves revenue.
+              </h2>
             </div>
             <p className="sec__lede lede">
               Not separate tools stitched together — views into one model. Which is why the
@@ -213,7 +264,11 @@ export default function Home() {
                 <div className="card__n">[{String(i + 1).padStart(2, "0")}]</div>
                 <div className="card__t">{f.t}</div>
                 <p className="card__d">{f.d}</p>
-                <ul className="card__list">{f.points.map((p) => <li key={p}>{p}</li>)}</ul>
+                <ul className="card__list">
+                  {f.points.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </Reveal>
@@ -226,9 +281,17 @@ export default function Home() {
           <div className="sec">
             <div>
               <div className="sec__index">// 008 — trust by design</div>
-              <h2 className="h2 sec__h">A brain you&rsquo;d<br />actually leave<br />running.</h2>
+              <h2 className="h2 sec__h">
+                A brain you&rsquo;d
+                <br />
+                actually leave
+                <br />
+                running.
+              </h2>
             </div>
-            <p className="sec__lede lede">Everything it can do on your behalf sits behind guardrails, and one switch.</p>
+            <p className="sec__lede lede">
+              Everything it can do on your behalf sits behind guardrails, and one switch.
+            </p>
           </div>
           <Reveal className="cards cols-2 grid mt-l">
             {GUARDS.map((g, i) => (
@@ -246,13 +309,20 @@ export default function Home() {
       <section className="panel panel--concrete section" id="waitlist">
         <div className="container">
           <div className="label label--acc">// waitlist · invite-only</div>
-          <h2 className="dsp cta__h mt-s">Get on<br />the list.</h2>
+          <h2 className="dsp cta__h mt-s">
+            Get on
+            <br />
+            the list.
+          </h2>
           <p className="lede mt-m" style={{ maxWidth: "58ch" }}>
             We build each brain by hand, one at a time, against your own systems — so access is
-            invite-only for now. Tell us what you need and we&rsquo;ll reach out when yours is ready.{" "}
+            invite-only for now. Tell us what you need and we&rsquo;ll reach out when yours is
+            ready.{" "}
             <b style={{ color: "var(--acc)", fontWeight: 600 }}>Hosted SaaS opens Q4 2026.</b>
           </p>
-          <Reveal className="mt-l"><Waitlist /></Reveal>
+          <Reveal className="mt-l">
+            <Waitlist />
+          </Reveal>
         </div>
       </section>
     </>
@@ -262,63 +332,174 @@ export default function Home() {
 const THOUGHTS = [
   {
     src: "40 sales replies · published content · win/loss",
-    think: "The objection in your last forty sales replies is integration time. Every piece of marketing you publish still leads on price. Sales and marketing are arguing different cases.",
+    think:
+      "The objection in your last forty sales replies is integration time. Every piece of marketing you publish still leads on price. Sales and marketing are arguing different cases.",
     act: "Drafted three posts answering the integration objection and queued the positioning change for review.",
   },
   {
     src: "4 threads · renewal in 34d · 2 historical churns",
-    think: "Northwind's champion has gone quiet for nine days and their renewal lands in thirty-four. The last two accounts that went quiet at exactly this stage churned.",
+    think:
+      "Northwind's champion has gone quiet for nine days and their renewal lands in thirty-four. The last two accounts that went quiet at exactly this stage churned.",
     act: "Drafted a re-engagement to the economic buyer, not the champion, before the renewal window closes.",
   },
   {
     src: "market scan · 340 companies · funding + growth signals",
-    think: "Fourteen companies raised this month and match the profile of your best-converting customers. None of them are in your CRM. You have never spoken to any of them.",
+    think:
+      "Fourteen companies raised this month and match the profile of your best-converting customers. None of them are in your CRM. You have never spoken to any of them.",
     act: "Enriched all fourteen, found the economic buyer for each, drafted intros naming the trigger.",
   },
 ];
 
 const OUTCOMES = [
-  { t: "Source your whole market", d: "It finds the accounts worth knowing, enriches them, and scores them against what has actually converted for you — continuously, not in campaign bursts." },
-  { t: "Wake the dormant ones", d: "Everyone you have ever touched stays live and watched, including records dormant for years. The reason to call them back arrives the day it appears." },
-  { t: "Outreach that already knows", d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation." },
-  { t: "Sharper every week", d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them." },
+  {
+    t: "Source your whole market",
+    d: "It finds the accounts worth knowing, enriches them, and scores them against what has actually converted for you — continuously, not in campaign bursts.",
+  },
+  {
+    t: "Wake the dormant ones",
+    d: "Everyone you have ever touched stays live and watched, including records dormant for years. The reason to call them back arrives the day it appears.",
+  },
+  {
+    t: "Outreach that already knows",
+    d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation.",
+  },
+  {
+    t: "Sharper every week",
+    d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them.",
+  },
 ];
 
 const ARCH = [
-  { n: "01", t: "Ingest", d: "Connectors to your CRM, inbox, calendar and campaigns, plus market and funding signals. Normalised into one stream.", held: false },
-  { n: "02", t: "Semantic layer", d: "Entity resolution, embedding space, relation graph. Where raw records become meaning.", held: true },
-  { n: "03", t: "World model", d: "Persistent state and temporal memory — the picture that survives between sessions.", held: false },
-  { n: "04", t: "Reasoning", d: "Ranks the highest-value move across the whole model, with the rationale attached.", held: true },
-  { n: "05", t: "Execution", d: "Guardrailed automations: sequences, routing, follow-ups, caps and circuit breakers.", held: false },
-  { n: "06", t: "Learning", d: "Outcome capture folded back into the model. The loop that makes it compound.", held: false },
+  {
+    n: "01",
+    t: "Ingest",
+    d: "Connectors to your CRM, inbox, calendar and campaigns, plus market and funding signals. Normalised into one stream.",
+    held: false,
+  },
+  {
+    n: "02",
+    t: "Semantic layer",
+    d: "Entity resolution, embedding space, relation graph. Where raw records become meaning.",
+    held: true,
+  },
+  {
+    n: "03",
+    t: "World model",
+    d: "Persistent state and temporal memory — the picture that survives between sessions.",
+    held: false,
+  },
+  {
+    n: "04",
+    t: "Reasoning",
+    d: "Ranks the highest-value move across the whole model, with the rationale attached.",
+    held: true,
+  },
+  {
+    n: "05",
+    t: "Execution",
+    d: "Guardrailed automations: sequences, routing, follow-ups, caps and circuit breakers.",
+    held: false,
+  },
+  {
+    n: "06",
+    t: "Learning",
+    d: "Outcome capture folded back into the model. The loop that makes it compound.",
+    held: false,
+  },
 ];
 
 const CONCEPT = [
-  { word: "Persistent", lead: "It", emph: "remembers.", body: "Nothing resets between sessions. Every conversation, deal and result stays in the model and keeps informing the next decision." },
-  { word: "Semantic", lead: "It", emph: "understands.", body: "It doesn't just hold data, it holds meaning. It knows a pricing visit, a quiet champion and a sector tailwind are related, and what that implies." },
-  { word: "World model", lead: "It", emph: "reasons.", body: "One connected picture of your whole business — accounts, market, history — that omyt can think across and run forward, grounded in your world." },
+  {
+    word: "Persistent",
+    lead: "It",
+    emph: "remembers.",
+    body: "Nothing resets between sessions. Every conversation, deal and result stays in the model and keeps informing the next decision.",
+  },
+  {
+    word: "Semantic",
+    lead: "It",
+    emph: "understands.",
+    body: "It doesn't just hold data, it holds meaning. It knows a pricing visit, a quiet champion and a sector tailwind are related, and what that implies.",
+  },
+  {
+    word: "World model",
+    lead: "It",
+    emph: "reasons.",
+    body: "One connected picture of your whole business — accounts, market, history — that omyt can think across and run forward, grounded in your world.",
+  },
 ];
 
 const LOOP = [
-  { t: "Ingest", d: "Deals, replies, site visits, market shifts, outcomes — every signal flows in continuously." },
-  { t: "Model", d: "Signals become structure: entities, relationships and meaning connected into one living model." },
-  { t: "Reason", d: "The brain weighs the whole model at once and ranks the highest-value next move." },
-  { t: "Act", d: "Automations execute inside your guardrails — outreach, routing, follow-ups. No manual queue." },
-  { t: "Learn", d: "Every result folds back in. The model sharpens, and the next decision is better." },
+  {
+    t: "Ingest",
+    d: "Deals, replies, site visits, market shifts, outcomes — every signal flows in continuously.",
+  },
+  {
+    t: "Model",
+    d: "Signals become structure: entities, relationships and meaning connected into one living model.",
+  },
+  {
+    t: "Reason",
+    d: "The brain weighs the whole model at once and ranks the highest-value next move.",
+  },
+  {
+    t: "Act",
+    d: "Automations execute inside your guardrails — outreach, routing, follow-ups. No manual queue.",
+  },
+  {
+    t: "Learn",
+    d: "Every result folds back in. The model sharpens, and the next decision is better.",
+  },
 ];
 
 const FEATURES = [
-  { t: "Outreach", d: "Email-first sequences that build their own lists, personalize from what the model knows, and send inside deliverability guardrails.", points: ["ICP scoring & enrichment", "Reply classification", "Daily-cap & bounce protection"] },
-  { t: "Pipeline", d: "A CRM that's actually the source of truth — every touch, signal and stage held in the model.", points: ["Stage health at a glance", "Risk & next-action scoring", "No busywork entry"] },
-  { t: "Automations", d: "Background work that runs itself: list-building, follow-ups, reply routing, nurture.", points: ["Always-on, in guardrails", "One emergency stop", "Self-serve, no calls"] },
-  { t: "Strategy", d: "ICP, positioning, moat, risks and a 90-day plan — kept honest by your real data.", points: ["GTM bets & plays", "Freeze / unfreeze", "Approve or veto"] },
-  { t: "Intelligence", d: "Micro, macro and experience signals fused into one judgment about what to do next.", points: ["Market & account signals", "Learns from outcomes", "Surfaces, never buries"] },
-  { t: "The loop", d: "Outcomes feed back as new structure, so the model compounds toward your North Star.", points: ["One six-month goal", "Closed-loop learning", "Sharper over time"] },
+  {
+    t: "Outreach",
+    d: "Email-first sequences that build their own lists, personalize from what the model knows, and send inside deliverability guardrails.",
+    points: ["ICP scoring & enrichment", "Reply classification", "Daily-cap & bounce protection"],
+  },
+  {
+    t: "Pipeline",
+    d: "A CRM that's actually the source of truth — every touch, signal and stage held in the model.",
+    points: ["Stage health at a glance", "Risk & next-action scoring", "No busywork entry"],
+  },
+  {
+    t: "Automations",
+    d: "Background work that runs itself: list-building, follow-ups, reply routing, nurture.",
+    points: ["Always-on, in guardrails", "One emergency stop", "Self-serve, no calls"],
+  },
+  {
+    t: "Strategy",
+    d: "ICP, positioning, moat, risks and a 90-day plan — kept honest by your real data.",
+    points: ["GTM bets & plays", "Freeze / unfreeze", "Approve or veto"],
+  },
+  {
+    t: "Intelligence",
+    d: "Micro, macro and experience signals fused into one judgment about what to do next.",
+    points: ["Market & account signals", "Learns from outcomes", "Surfaces, never buries"],
+  },
+  {
+    t: "The loop",
+    d: "Outcomes feed back as new structure, so the model compounds toward your North Star.",
+    points: ["One six-month goal", "Closed-loop learning", "Sharper over time"],
+  },
 ];
 
 const GUARDS = [
-  { t: "One emergency stop", d: "A single switch halts outreach, auto-replies, transactional email and direct mail at once — instantly." },
-  { t: "Deliverability guardrails", d: "Per-day send caps, suppression lists and a bounce-rate circuit breaker protect your domain automatically." },
-  { t: "Nothing sends unseen", d: "Every outbound path can run in draft-only mode, where the brain writes and queues but a human releases. You decide how much rope it gets." },
-  { t: "You stay in control", d: "Strategy can be frozen. Every suggestion is yours to approve or veto — and both train what comes next." },
+  {
+    t: "One emergency stop",
+    d: "A single switch halts outreach, auto-replies, transactional email and direct mail at once — instantly.",
+  },
+  {
+    t: "Deliverability guardrails",
+    d: "Per-day send caps, suppression lists and a bounce-rate circuit breaker protect your domain automatically.",
+  },
+  {
+    t: "Nothing sends unseen",
+    d: "Every outbound path can run in draft-only mode, where the brain writes and queues but a human releases. You decide how much rope it gets.",
+  },
+  {
+    t: "You stay in control",
+    d: "Strategy can be frozen. Every suggestion is yours to approve or veto — and both train what comes next.",
+  },
 ];

@@ -46,7 +46,9 @@ async function loadCorpus(): Promise<string> {
   return corpusCache;
 }
 
-const SYSTEM = (corpus: string) => `You are the assistant on omyt's website. You answer questions from visitors about omyt.
+const SYSTEM = (
+  corpus: string,
+) => `You are the assistant on omyt's website. You answer questions from visitors about omyt.
 
 Everything you are allowed to state about omyt is in the REFERENCE below. Follow these rules without exception:
 
@@ -81,14 +83,19 @@ export async function POST(req: Request) {
   const key = process.env.ASSIST_API_KEY;
   if (!key) {
     return Response.json(
-      { error: "The assistant isn't configured yet. Email hello@omyt.ai and we'll answer directly." },
+      {
+        error: "The assistant isn't configured yet. Email hello@omyt.ai and we'll answer directly.",
+      },
       { status: 503 },
     );
   }
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
   if (rateLimited(ip)) {
-    return Response.json({ error: "Too many questions at once. Give it a minute." }, { status: 429 });
+    return Response.json(
+      { error: "Too many questions at once. Give it a minute." },
+      { status: 429 },
+    );
   }
 
   let body: { messages?: { role?: string; content?: string }[] };
@@ -100,8 +107,13 @@ export async function POST(req: Request) {
 
   const incoming = Array.isArray(body.messages) ? body.messages.slice(-MAX_MESSAGES) : [];
   const messages = incoming
-    .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
-    .map((m) => ({ role: m.role as "user" | "assistant", content: (m.content as string).slice(0, MAX_CHARS) }));
+    .filter(
+      (m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string",
+    )
+    .map((m) => ({
+      role: m.role as "user" | "assistant",
+      content: (m.content as string).slice(0, MAX_CHARS),
+    }));
 
   if (messages.length === 0) {
     return Response.json({ error: "no_messages" }, { status: 422 });
@@ -133,7 +145,11 @@ export async function POST(req: Request) {
   }
 
   if (!upstream.ok || !upstream.body) {
-    console.error("[assist] upstream error", upstream.status, await upstream.text().catch(() => ""));
+    console.error(
+      "[assist] upstream error",
+      upstream.status,
+      await upstream.text().catch(() => ""),
+    );
     return Response.json({ error: "Assistant is unavailable right now." }, { status: 502 });
   }
 

@@ -29,7 +29,15 @@ export const metadata: Metadata = {
   },
   description:
     "omyt is a company brain. It holds everything your business knows — every account, campaign, thread and outcome — reasons across all of it continuously, and acts on what it concludes. Today that means sales and marketing run themselves.",
-  keywords: ["company brain", "AI business operating system", "semantic world model", "sales automation", "marketing automation", "pipeline", "business intelligence"],
+  keywords: [
+    "company brain",
+    "AI business operating system",
+    "semantic world model",
+    "sales automation",
+    "marketing automation",
+    "pipeline",
+    "business intelligence",
+  ],
   openGraph: {
     title: "omyt — the company brain",
     description:
@@ -41,8 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "omyt — the company brain",
-    description:
-      "A company brain that knows everything your business knows, and acts on it.",
+    description: "A company brain that knows everything your business knows, and acts on it.",
   },
 };
 

@@ -34,7 +34,9 @@ function mulberry32(seed: number) {
 /* gyrified hemisphere — folds come from the two sine bands, the bulge shapes
    the temporal lobe so the profile is unmistakably cortical */
 function hemisphere(rng: () => number, side: number, count: number, out: Slot[]) {
-  const A = 0.42, B = 0.5, C = 0.64;
+  const A = 0.42,
+    B = 0.5,
+    C = 0.64;
   const offX = side * 0.19;
   for (let i = 0; i < count; i++) {
     const u = rng() * Math.PI * 2;
@@ -61,7 +63,9 @@ function hemisphere(rng: () => number, side: number, count: number, out: Slot[])
 }
 
 function cerebellum(rng: () => number, count: number, out: Slot[]) {
-  const cx = 0, cy = -0.4, cz = -0.46;
+  const cx = 0,
+    cy = -0.4,
+    cz = -0.46;
   for (let i = 0; i < count; i++) {
     const u = rng() * Math.PI * 2;
     const v = Math.acos(2 * rng() - 1);
@@ -162,14 +166,20 @@ export function BrainOrganism({ className }: { className?: string }) {
     for (let i = 0; i < n; i++) order[i] = i;
     const orderArr = Array.from(order);
 
-    let w = 0, h = 0, dpr = 1, R = 0, cx = 0, cy = 0;
+    let w = 0,
+      h = 0,
+      dpr = 1,
+      R = 0,
+      cx = 0,
+      cy = 0;
     let raf = 0;
     let running = true;
     let scrollN = 0; // 0..1 progress through the first viewport
     let phase = 0;
     let last = performance.now();
 
-    const cosT = Math.cos(TILT), sinT = Math.sin(TILT);
+    const cosT = Math.cos(TILT),
+      sinT = Math.sin(TILT);
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -186,7 +196,8 @@ export function BrainOrganism({ className }: { className?: string }) {
 
     const draw = (angle: number, t: number) => {
       ctx.clearRect(0, 0, w, h);
-      const ca = Math.cos(angle), sa = Math.sin(angle);
+      const ca = Math.cos(angle),
+        sa = Math.sin(angle);
 
       for (let i = 0; i < n; i++) {
         const p = slots[i];

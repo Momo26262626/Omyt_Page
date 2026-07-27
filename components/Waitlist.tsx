@@ -42,7 +42,11 @@ export function Waitlist() {
     return (
       <div className="wl wl--done">
         <div className="label label--acc">// you&rsquo;re on the list</div>
-        <h3 className="wl__doneh">We&rsquo;ll reach out<br />once your brain is ready.</h3>
+        <h3 className="wl__doneh">
+          We&rsquo;ll reach out
+          <br />
+          once your brain is ready.
+        </h3>
         <p className="wl__donep">
           We set up each brain by hand, so invites go out in small waves. You&rsquo;ll get an email
           from <b>hello@omyt.ai</b> — keep an eye out.
@@ -56,17 +60,39 @@ export function Waitlist() {
       <div className="wl__grid">
         <label className="wl__field">
           <span className="wl__lab">// name</span>
-          <input className="wl__input" name="name" type="text" autoComplete="name" required maxLength={120} placeholder="Ada Lovelace" />
+          <input
+            className="wl__input"
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            maxLength={120}
+            placeholder="Ada Lovelace"
+          />
         </label>
         <label className="wl__field">
           <span className="wl__lab">// email</span>
-          <input className="wl__input" name="email" type="email" autoComplete="email" required maxLength={200} placeholder="ada@company.com" />
+          <input
+            className="wl__input"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            maxLength={200}
+            placeholder="ada@company.com"
+          />
         </label>
       </div>
 
       <label className="wl__field">
         <span className="wl__lab">// what do you need a brain for?</span>
-        <textarea className="wl__input wl__area" name="need" rows={3} maxLength={2000} placeholder="What you're building, what you'd point the brain at, and the outcome you're chasing." />
+        <textarea
+          className="wl__input wl__area"
+          name="need"
+          rows={3}
+          maxLength={2000}
+          placeholder="What you're building, what you'd point the brain at, and the outcome you're chasing."
+        />
       </label>
 
       <fieldset className="wl__modes">
@@ -80,7 +106,9 @@ export function Waitlist() {
               onClick={() => setMode(m.id)}
               aria-pressed={mode === m.id}
             >
-              <span className="wl__modetick" aria-hidden>{mode === m.id ? "◆" : "◇"}</span>
+              <span className="wl__modetick" aria-hidden>
+                {mode === m.id ? "◆" : "◇"}
+              </span>
               <span className="wl__modet">{m.t}</span>
               <span className="wl__moded">{m.d}</span>
             </button>
@@ -89,7 +117,11 @@ export function Waitlist() {
       </fieldset>
 
       <div className="wl__foot">
-        <button className="btn btn--acc btn--lg wl__submit" type="submit" disabled={status === "sending"}>
+        <button
+          className="btn btn--acc btn--lg wl__submit"
+          type="submit"
+          disabled={status === "sending"}
+        >
           {status === "sending" ? "Sending…" : "Request an invite"} <span className="arr">↗</span>
         </button>
         <p className="wl__note">
@@ -98,7 +130,10 @@ export function Waitlist() {
           ) : (
             <>
               We only use your details to contact you about access. No spam, ever. See our{" "}
-              <a href="/legal/privacy" className="wl__link">privacy policy</a>.
+              <a href="/legal/privacy" className="wl__link">
+                privacy policy
+              </a>
+              .
             </>
           )}
         </p>

@@ -36,7 +36,9 @@ export function Assistant() {
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
@@ -102,7 +104,14 @@ export function Assistant() {
         aria-expanded={open}
         aria-label={open ? "Close the assistant" : "Ask about omyt"}
       >
-        {open ? <span aria-hidden>✕</span> : <><span className="asst__fab-dot" aria-hidden />Ask about omyt</>}
+        {open ? (
+          <span aria-hidden>✕</span>
+        ) : (
+          <>
+            <span className="asst__fab-dot" aria-hidden />
+            Ask about omyt
+          </>
+        )}
       </button>
 
       <div className={`asst ${open ? "is-open" : ""}`} role="dialog" aria-label="Ask about omyt">
@@ -147,7 +156,9 @@ export function Assistant() {
             maxLength={1500}
             aria-label="Your question"
           />
-          <button type="submit" className="asst__send" disabled={busy} aria-label="Send">↗</button>
+          <button type="submit" className="asst__send" disabled={busy} aria-label="Send">
+            ↗
+          </button>
         </form>
       </div>
     </>
