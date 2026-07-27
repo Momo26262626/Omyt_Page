@@ -10,7 +10,7 @@ const MODES: { id: Mode; t: string; d: string }[] = [
   { id: "saas", t: "Hosted SaaS", d: "Fully managed by omyt. Coming Q4 2026." },
 ];
 
-export function Waitlist() {
+export function Waitlist({ source = "home" }: { source?: "home" | "partners" }) {
   const [mode, setMode] = useState<Mode>("local");
   const [status, setStatus] = useState<Status>("idle");
 
@@ -29,6 +29,7 @@ export function Waitlist() {
           email: data.get("email"),
           need: data.get("need"),
           mode,
+          source,
         }),
       });
       const json = await res.json().catch(() => ({ ok: false }));

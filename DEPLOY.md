@@ -16,6 +16,8 @@ Vercel (and Cloudflare) absorb that at their edge.
    - `WAITLIST_NOTIFY_TO` — optional, default `hello@omyt.ai`.
    - `WAITLIST_FROM` — optional, default `omyt waitlist <hello@omyt.ai>`
      (must be a Resend-verified sender/domain).
+   - `WAITLIST_WEBHOOK_URL` — optional. If set, every signup is also POSTed as
+     JSON to this URL (CRM/automation hook; second durable channel).
    - `ASSIST_API_KEY` — required for the site assistant. Without it the widget
      still renders and tells visitors to email instead, so this is safe to defer.
    - `ASSIST_BASE_URL` — optional, default `https://openrouter.ai/api/v1`. Any
@@ -37,9 +39,13 @@ Lower-risk interim: leave `omyt.ai` on the app and point a subdomain
 ## Waitlist capture
 
 `app/api/waitlist/route.ts` emails each signup via Resend when `RESEND_API_KEY`
-is set (the prod path). Locally, it also appends to `data/waitlist.jsonl`
-(gitignored) — that file write is a no-op on Vercel's read-only FS and never
-errors. Swap in a managed store (Upstash/Vercel KV) later if you want a list.
+is set (the prod path) and POSTs it to `WAITLIST_WEBHOOK_URL` when that is set.
+Locally, it also appends to `data/waitlist.jsonl` (gitignored) — that file write
+is a no-op on Vercel's read-only FS and never errors. Each entry carries a
+`source` field (`home` | `partners`) so applications are distinguishable from
+waitlist signups. **If no channel is configured (or Resend fails), the full
+entry is written to `console.error` — recoverable from Vercel logs, but check
+them.** Swap in a managed store (Upstash/Vercel KV) later if you want a list.
 
 ## The site assistant
 

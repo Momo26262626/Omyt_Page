@@ -114,7 +114,7 @@ export default function Partners() {
             you on a list.
           </p>
           <Reveal className="mt-l">
-            <Waitlist />
+            <Waitlist source="partners" />
           </Reveal>
         </div>
       </section>
