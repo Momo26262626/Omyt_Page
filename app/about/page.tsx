@@ -49,6 +49,14 @@ export default function About() {
               easiest to measure.
             </p>
           </Reveal>
+          <Reveal delay={160}>
+            <p className="lede mt-l" style={{ maxWidth: "62ch" }}>
+              And we hold ourselves to it: <b style={{ color: "var(--acc)" }}>omyt runs omyt</b>.
+              We are our own first customer and our own first design partner — the go-to-market
+              behind this site is sourced, researched and written by the brain, with a human
+              releasing every send.
+            </p>
+          </Reveal>
         </div>
       </section>
 

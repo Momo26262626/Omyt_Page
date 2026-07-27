@@ -53,7 +53,7 @@ export function SiteNav() {
             Sign in
           </a>
           <a href="/#waitlist" className="nav__cta">
-            <span>Join waitlist</span> ↗
+            <span>Request an invite</span> ↗
           </a>
           <button
             type="button"
@@ -76,7 +76,7 @@ export function SiteNav() {
           </Link>
         ))}
         <a href="/#waitlist" className="btn btn--primary" style={{ marginTop: 8 }}>
-          Join waitlist <span className="arr">↗</span>
+          Request an invite <span className="arr">↗</span>
         </a>
       </div>
     </header>

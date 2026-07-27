@@ -41,7 +41,7 @@ export function Waitlist() {
   if (status === "done") {
     return (
       <div className="wl wl--done">
-        <div className="label label--acc">// you&rsquo;re on the list</div>
+        <div className="label label--acc">// request received</div>
         <h3 className="wl__doneh">
           We&rsquo;ll reach out
           <br />

@@ -8,8 +8,8 @@ export function SiteFooter() {
   return (
     <footer className="footer panel">
       <div className="container">
-        <a href="/#waitlist" className="footer__big" aria-label="Join the waitlist">
-          JOIN_THE_LIST ↗
+        <a href="/#waitlist" className="footer__big" aria-label="Request an invite">
+          REQUEST_AN_INVITE ↗
         </a>
 
         <div className="footer__mid">
@@ -36,7 +36,7 @@ export function SiteFooter() {
             <Link href="/about">About</Link>
             <Link href="/about#thesis">Thesis</Link>
             <a href={APP_URL}>Sign in</a>
-            <a href="/#waitlist">Join waitlist</a>
+            <a href="/#waitlist">Request an invite</a>
           </div>
           <div className="footer__col">
             <span className="footer__h">Contact</span>

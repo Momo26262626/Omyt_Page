@@ -108,7 +108,7 @@ export function BrutalHero() {
         <div className="hero__bottom">
           <div className="hero__cta">
             <a href="#waitlist" className="btn btn--primary btn--lg">
-              Join the waitlist <span className="arr">↗</span>
+              Request an invite <span className="arr">↗</span>
             </a>
             <a href="#model" className="btn btn--ghost btn--lg">
               Read the spec <span className="arr">↗</span>

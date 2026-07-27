@@ -24,8 +24,9 @@ export default function Partners() {
           <p className="lede phero__lede">
             Not a launch. Not a free trial. We build each brain by hand, against your own systems,
             with you in the room — because the only way to learn what this product needs to be is to
-            run it on real businesses. A small number, deliberately. The hosted version follows in
-            Q4 2026.
+            run it on real businesses. We&rsquo;re our own first design partner: omyt&rsquo;s
+            go-to-market already runs on the brain. A small number, deliberately. The hosted
+            version follows in Q4 2026.
           </p>
           <div className="phero__cta">
             <a href="#waitlist" className="btn btn--primary btn--lg">
@@ -168,7 +169,7 @@ const ASK = [
   },
   {
     t: "A regular conversation",
-    d: "A short call every couple of weeks while we build. That feedback loop is the entire point of the programme, and the reason the number is small.",
+    d: "A short call every couple of weeks while we build. That feedback loop is the entire point of the program, and the reason the number is small.",
   },
   {
     t: "Tell us when it's wrong",
@@ -195,10 +196,10 @@ const FAQ = [
   },
   {
     q: "Does it run on our infrastructure?",
-    a: "Yes. During the design-partner programme it runs against your own systems, which is also why your data never leaves them. The hosted option arrives with the SaaS.",
+    a: "Yes. During the design-partner program it runs against your own systems, which is also why your data never leaves them. The hosted option arrives with the SaaS.",
   },
   {
     q: "What if it doesn't work for us?",
-    a: "Then we tell you, ideally before you've spent anything. We would rather turn down a bad fit than carry an unhappy partner through a programme built on honest feedback.",
+    a: "Then we tell you, ideally before you've spent anything. We would rather turn down a bad fit than carry an unhappy partner through a program built on honest feedback.",
   },
 ];

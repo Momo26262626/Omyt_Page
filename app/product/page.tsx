@@ -29,7 +29,7 @@ export default function Product() {
           </p>
           <div className="phero__cta">
             <a href="/#waitlist" className="btn btn--primary btn--lg">
-              Join the waitlist <span className="arr">↗</span>
+              Request an invite <span className="arr">↗</span>
             </a>
             <Link href="/partners" className="btn btn--ghost btn--lg">
               Design partners <span className="arr">↗</span>
@@ -64,7 +64,8 @@ export default function Product() {
               <h2 className="show__h">The layer that decides what matters.</h2>
               <p className="show__p">
                 The brain reads the whole model — pipeline, signals, history, market — then ranks
-                the next moves with the reasoning attached. It proposes; you decide.
+                the next moves with the reasoning attached. It proposes; you decide — and you
+                choose how much runs without you, from draft-only to fully automatic.
               </p>
               <ul className="show__list">
                 <li>Reasons over the entire model — CRM, signals, outcomes, macro</li>
@@ -232,7 +233,7 @@ export default function Product() {
             </p>
             <div className="hero__cta">
               <a href="/#waitlist" className="btn btn--acc btn--lg">
-                Join the waitlist <span className="arr">↗</span>
+                Request an invite <span className="arr">↗</span>
               </a>
               <Link href="/about" className="btn btn--ghost btn--lg">
                 Why we built it <span className="arr">↗</span>
