@@ -23,11 +23,28 @@ const OPENERS = [
 
 export function Assistant() {
   const [open, setOpen] = useState(false);
+  const [peek, setPeek] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const logRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  // The hero fires this once its organism has docked bottom-right; show the
+  // input bar (with the AI disclosure) once per session, never again after.
+  useEffect(() => {
+    const onPeek = () => {
+      try {
+        if (sessionStorage.getItem("omyt-peeked")) return;
+        sessionStorage.setItem("omyt-peeked", "1");
+      } catch {
+        // storage unavailable — still peek, just without the once-per-session guard
+      }
+      setPeek(true);
+    };
+    window.addEventListener("omyt:assistant:peek", onPeek);
+    return () => window.removeEventListener("omyt:assistant:peek", onPeek);
+  }, []);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: scroll on every new token
   useEffect(() => {
@@ -37,7 +54,10 @@ export function Assistant() {
   useEffect(() => {
     if (open) inputRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        setPeek(false);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -88,6 +108,8 @@ export function Assistant() {
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setPeek(false);
+    setOpen(true);
     const el = inputRef.current;
     if (!el) return;
     const v = el.value;
@@ -100,7 +122,10 @@ export function Assistant() {
       <button
         type="button"
         className={`asst__fab ${open ? "is-open" : ""}`}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setPeek(false);
+          setOpen((v) => !v);
+        }}
         aria-expanded={open}
         aria-label={open ? "Close the assistant" : "Ask about omyt"}
       >
@@ -114,7 +139,11 @@ export function Assistant() {
         )}
       </button>
 
-      <div className={`asst ${open ? "is-open" : ""}`} role="dialog" aria-label="Ask about omyt">
+      <div
+        className={`asst ${open ? "is-open" : ""}${peek && !open ? " is-peek" : ""}`}
+        role="dialog"
+        aria-label="Ask about omyt"
+      >
         <div className="asst__head">
           <div className="asst__title">// ask_omyt</div>
           <div className="asst__note">
@@ -155,6 +184,12 @@ export function Assistant() {
             disabled={busy}
             maxLength={1500}
             aria-label="Your question"
+            onFocus={() => {
+              if (peek && !open) {
+                setPeek(false);
+                setOpen(true);
+              }
+            }}
           />
           <button type="submit" className="asst__send" disabled={busy} aria-label="Send">
             ↗

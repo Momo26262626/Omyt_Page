@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrainOrganism } from "./BrainOrganism";
 
 /**
@@ -16,6 +16,81 @@ import { BrainOrganism } from "./BrainOrganism";
  */
 export function BrutalHero() {
   const [pct, setPct] = useState(0);
+  const objRef = useRef<HTMLDivElement | null>(null);
+  const dockRef = useRef<HTMLDivElement | null>(null);
+
+  // Scroll-dock: past the hero the organism glides to the bottom-right corner
+  // (FLIP: fix the wrapper, measure the jump, correct it, interpolate to the
+  // dock point) and hands off to the assistant with a one-time peek event.
+  // Desktop only; reduced-motion never docks (the organism just scrolls away).
+  useEffect(() => {
+    const obj = objRef.current;
+    const dockEl = dockRef.current;
+    if (!obj || !dockEl) return;
+    const mqDesk = window.matchMedia("(min-width: 900px)");
+    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    let raf = 0;
+    let docked = false;
+    let peekFired = false;
+    let base = { x: 0, y: 0 };
+    let start = { cx: 0, cy: 0, w: 1 };
+    const startAt = () => window.innerHeight * 0.45;
+    const endAt = () => window.innerHeight * 1.15;
+
+    const undock = () => {
+      if (!docked) return;
+      docked = false;
+      obj.classList.remove("is-dock");
+      dockEl.style.transform = "";
+    };
+
+    const frame = () => {
+      raf = 0;
+      if (!mqDesk.matches || mqReduce.matches) return undock();
+      const y = window.scrollY;
+      if (y <= startAt()) return undock();
+
+      if (!docked) {
+        const pre = dockEl.getBoundingClientRect();
+        if (pre.width === 0) return;
+        obj.classList.add("is-dock");
+        dockEl.style.transform = "none";
+        const post = dockEl.getBoundingClientRect();
+        base = { x: pre.left - post.left, y: pre.top - post.top };
+        start = { cx: pre.left + pre.width / 2, cy: pre.top + pre.height / 2, w: pre.width };
+        docked = true;
+      }
+      const p = Math.min(1, (y - startAt()) / (endAt() - startAt()));
+      const t = p * p * (3 - 2 * p); // smoothstep
+      const targetW = 150;
+      const tcx = window.innerWidth - 120;
+      const tcy = window.innerHeight - 150;
+      const s = 1 + (targetW / start.w - 1) * t;
+      const dx = base.x + (tcx - start.cx) * t;
+      const dy = base.y + (tcy - start.cy) * t;
+      dockEl.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
+      if (p >= 1 && !peekFired) {
+        peekFired = true;
+        window.dispatchEvent(new CustomEvent("omyt:assistant:peek"));
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(frame);
+    };
+    const onResize = () => {
+      undock();
+      onScroll();
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   useEffect(() => {
     let raf = 0;
@@ -43,8 +118,10 @@ export function BrutalHero() {
 
   return (
     <section className="hero">
-      <div className="hero__object" aria-hidden="true">
-        <BrainOrganism className="hero__brain" />
+      <div className="hero__object" aria-hidden="true" ref={objRef}>
+        <div className="hero__dockable" ref={dockRef}>
+          <BrainOrganism className="hero__brain" />
+        </div>
       </div>
 
       <div className="hero__inner container">
