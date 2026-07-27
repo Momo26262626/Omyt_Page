@@ -222,30 +222,38 @@ export function BrainOrganism({ className }: { className?: string }) {
          rate at this density, so alpha is quantised into BUCKETS and the style
          is set once per bucket. Depth order is preserved because orderArr is
          already sorted; base points are laid down first, accents on top.
-         fillRect beats arc() at this size and is visually identical. */
+         Dots are ROUND and sized as radii — the product's OrganismHero
+         treatment. Squares at 1–2 device px read as dithered noise; arcs are
+         batched into one path per bucket so the cost stays at ~40 fills. */
       const BUCKETS = 20;
+      const TAU = Math.PI * 2;
       for (let pass = 0; pass < 2; pass++) {
         const lit = pass === 1;
         let bucket = -1;
+        let open = false;
         for (let k = 0; k < n; k++) {
           const i = orderArr[k];
           if (slots[i].lit !== lit) continue;
           const d = sd[i];
           const b = (d * (BUCKETS - 1)) | 0;
           if (b !== bucket) {
+            if (open) ctx.fill();
             bucket = b;
             const bd = b / (BUCKETS - 1);
-            // steeper falloff than before, so the near surface reads as solid
-            // structure and the far side recedes cleanly instead of hazing
-            const fog = 0.12 + bd * bd * 0.88;
+            // firm floor so the far hemisphere still reads as a body, not haze
+            const fog = 0.18 + bd * bd * 0.82;
             ctx.fillStyle = lit
               ? `rgba(120,214,238,${(fog * breath).toFixed(3)})`
               : `rgba(222,228,238,${(fog * 0.86).toFixed(3)})`;
+            ctx.beginPath();
+            open = true;
           }
-          // smaller points, more of them — this is what raises apparent detail
-          const s = (0.5 + d * 0.95) * ss[i];
-          ctx.fillRect(sx[i] - s * 0.5, sy[i] - s * 0.5, s, s);
+          // radius, not square side — same scale as the product's brain
+          const r = (0.55 + d * 1.0) * ss[i];
+          ctx.moveTo(sx[i] + r, sy[i]);
+          ctx.arc(sx[i], sy[i], r, 0, TAU);
         }
+        if (open) ctx.fill();
       }
     };
 
