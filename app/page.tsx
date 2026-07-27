@@ -78,9 +78,12 @@ export default function Home() {
 
           <div className="thoughts mt-l">
             {THOUGHTS.map((t, i) => (
-              <Reveal key={t.think} className="thought" delay={i * 60}>
+              <Reveal key={t.think} className={`thought${t.real ? " thought--real" : ""}`} delay={i * 60}>
                 <div className="thought__head">
-                  <span className="thought__n">thought_{String(i + 1).padStart(2, "0")}</span>
+                  <span className="thought__n">
+                    thought_{String(i + 1).padStart(2, "0")}
+                    {t.real ? " · real" : ""}
+                  </span>
                   <span className="thought__src">{t.src}</span>
                 </div>
                 <p className="thought__body">{t.think}</p>
@@ -95,7 +98,7 @@ export default function Home() {
             ))}
           </div>
           <p className="label mt-s" style={{ color: "var(--dim2)" }}>
-            // illustrative — the shape of the output, not real customer data
+            // 01–03 illustrative — the shape of the output, not customer data. 04 is ours, live.
           </p>
         </div>
       </section>
@@ -124,7 +127,10 @@ export default function Home() {
             {OUTCOMES.map((o, i) => (
               <Reveal key={o.t} className="row-item" delay={i * 40}>
                 <div className="row-item__n">{String(i + 1).padStart(2, "0")}</div>
-                <div className="row-item__t">{o.t}</div>
+                <div className="row-item__t">
+                  {o.t}
+                  <span className="row-item__fn">{o.fn}</span>
+                </div>
                 <div className="row-item__d">{o.d}</div>
                 <div className="row-item__x">↗</div>
               </Reveal>
@@ -133,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 003 · ARCHITECTURAL PROOF — the shape, not the secret ───────── */}
+      {/* ── 004 · ARCHITECTURAL PROOF — the shape, not the secret ───────── */}
       <section className="panel section" id="architecture">
         <div className="container">
           <div className="sec">
@@ -169,7 +175,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 004 · HOW IT'S DONE — the mechanism finally earns its place ─── */}
+      {/* ── 005 · HOW IT'S DONE + THE LOOP — mechanism, told once ───────── */}
       <section className="panel panel--concrete section" id="model">
         <div className="container">
           <div className="sec">
@@ -202,39 +208,24 @@ export default function Home() {
               </div>
             ))}
           </Reveal>
-        </div>
-      </section>
 
-      {/* ── 005 · THE LOOP ─────────────────────────────────────────────── */}
-      <section className="panel section">
-        <div className="container">
-          <div className="sec">
-            <div>
-              <div className="sec__index">// 006 — the loop</div>
-              <h2 className="h2 sec__h">
-                Every outcome
-                <br />
-                makes the next
-                <br />
-                call sharper.
-              </h2>
-            </div>
-            <p className="sec__lede lede">
-              Signals enter, become structure, drive a decision, and the result folds back in.
-              Nothing is thrown away, which is why it gets better the longer it runs.
-            </p>
-          </div>
-
-          <div className="rows mt-l">
-            {LOOP.map((s, i) => (
-              <Reveal key={s.t} className="row-item" delay={i * 40}>
-                <div className="row-item__n">{String(i + 1).padStart(2, "0")}</div>
-                <div className="row-item__t">{s.t}</div>
-                <div className="row-item__d">{s.d}</div>
-                <div className="row-item__x">↗</div>
-              </Reveal>
+          <Reveal className="loopline mt-l">
+            {LOOPLINE.map((s, i) => (
+              <span className="loopline__step" key={s}>
+                <b>{String(i + 1).padStart(2, "0")}</b> {s}
+                {i < LOOPLINE.length - 1 && (
+                  <span className="loopline__sep" aria-hidden>
+                    {" "}
+                    →{" "}
+                  </span>
+                )}
+              </span>
             ))}
-          </div>
+            <span className="loopline__cap">
+              The loop it runs: every outcome folds back into the model, so nothing is thrown away
+              and the next call is sharper than the last.
+            </span>
+          </Reveal>
         </div>
       </section>
 
@@ -243,7 +234,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 007 — what it runs</div>
+              <div className="sec__index">// 006 — what it runs</div>
               <h2 className="h2 sec__h">
                 One brain.
                 <br />
@@ -253,8 +244,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="sec__lede lede">
-              Not separate tools stitched together — views into one model. Which is why the
-              understanding and the execution finally live in the same place.
+              The layers are how it&rsquo;s built; these five systems are what you use. Not separate
+              tools stitched together — views into one model, which is why the understanding and
+              the execution finally live in the same place.
             </p>
           </div>
 
@@ -272,6 +264,11 @@ export default function Home() {
               </div>
             ))}
           </Reveal>
+          <Reveal className="mt-l">
+            <a href="/product" className="btn btn--ghost">
+              See the full product <span className="arr">↗</span>
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -280,7 +277,7 @@ export default function Home() {
         <div className="container">
           <div className="sec">
             <div>
-              <div className="sec__index">// 008 — trust by design</div>
+              <div className="sec__index">// 007 — trust by design</div>
               <h2 className="h2 sec__h">
                 A brain you&rsquo;d
                 <br />
@@ -308,11 +305,11 @@ export default function Home() {
       {/* ── WAITLIST ───────────────────────────────────────────────────── */}
       <section className="panel panel--concrete section" id="waitlist">
         <div className="container">
-          <div className="label label--acc">// waitlist · invite-only</div>
+          <div className="label label--acc">// invite-only · built in small waves</div>
           <h2 className="dsp cta__h mt-s">
-            Get on
+            Request
             <br />
-            the list.
+            an invite.
           </h2>
           <p className="lede mt-m" style={{ maxWidth: "58ch" }}>
             We build each brain by hand, one at a time, against your own systems — so access is
@@ -329,7 +326,7 @@ export default function Home() {
   );
 }
 
-const THOUGHTS = [
+const THOUGHTS: { src: string; think: string; act: string; real?: boolean }[] = [
   {
     src: "40 sales replies · published content · win/loss",
     think:
@@ -348,23 +345,34 @@ const THOUGHTS = [
       "Fourteen companies raised this month and match the profile of your best-converting customers. None of them are in your CRM. You have never spoken to any of them.",
     act: "Enriched all fourteen, found the economic buyer for each, drafted intros naming the trigger.",
   },
+  {
+    src: "our own pipeline · running now",
+    think:
+      "omyt runs omyt. The design-partner search behind this page is run by the brain itself — it sources the candidates, researches each one, and writes the outreach. The same loop described above, pointed at ourselves.",
+    act: "Drafts every intro we send. A human reads and releases each one — the guardrails below are how we run it too.",
+    real: true,
+  },
 ];
 
 const OUTCOMES = [
   {
     t: "Source your whole market",
+    fn: "source(worth_knowing)",
     d: "It finds the accounts worth knowing, enriches them, and scores them against what has actually converted for you — continuously, not in campaign bursts.",
   },
   {
     t: "Wake the dormant ones",
+    fn: "understand(each_one)",
     d: "Everyone you have ever touched stays live and watched, including records dormant for years. The reason to call them back arrives the day it appears.",
   },
   {
     t: "Outreach that already knows",
-    d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalisation.",
+    fn: "act(when_ready)",
+    d: "Every message is written from the actual history: what they said last time, why it stalled, what changed since. No blank-page personalization.",
   },
   {
     t: "Sharper every week",
+    fn: "learn(from_the_outcome)",
     d: "Placed, won, lost, ignored — every outcome updates the model. Month six is better than month one, and nobody leaving takes the context with them.",
   },
 ];
@@ -373,7 +381,7 @@ const ARCH = [
   {
     n: "01",
     t: "Ingest",
-    d: "Connectors to your CRM, inbox, calendar and campaigns, plus market and funding signals. Normalised into one stream.",
+    d: "Connectors to your CRM, inbox, calendar and campaigns, plus market and funding signals. Normalized into one stream.",
     held: false,
   },
   {
@@ -429,28 +437,7 @@ const CONCEPT = [
   },
 ];
 
-const LOOP = [
-  {
-    t: "Ingest",
-    d: "Deals, replies, site visits, market shifts, outcomes — every signal flows in continuously.",
-  },
-  {
-    t: "Model",
-    d: "Signals become structure: entities, relationships and meaning connected into one living model.",
-  },
-  {
-    t: "Reason",
-    d: "The brain weighs the whole model at once and ranks the highest-value next move.",
-  },
-  {
-    t: "Act",
-    d: "Automations execute inside your guardrails — outreach, routing, follow-ups. No manual queue.",
-  },
-  {
-    t: "Learn",
-    d: "Every result folds back in. The model sharpens, and the next decision is better.",
-  },
-];
+const LOOPLINE = ["ingest", "model", "reason", "act", "learn"];
 
 const FEATURES = [
   {
@@ -477,11 +464,6 @@ const FEATURES = [
     t: "Intelligence",
     d: "Micro, macro and experience signals fused into one judgment about what to do next.",
     points: ["Market & account signals", "Learns from outcomes", "Surfaces, never buries"],
-  },
-  {
-    t: "The loop",
-    d: "Outcomes feed back as new structure, so the model compounds toward your North Star.",
-    points: ["One six-month goal", "Closed-loop learning", "Sharper over time"],
   },
 ];
 

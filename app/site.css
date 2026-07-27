@@ -453,6 +453,16 @@
   font-size: 14.5px;
   line-height: 1.55;
 }
+.row-item__fn {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: var(--dim2);
+}
 .row-item__x {
   font-family: var(--font-mono);
   color: var(--dim2);
@@ -1321,11 +1331,43 @@
   line-height: 1.6;
   color: var(--dim);
 }
+.thought--real {
+  box-shadow: inset 3px 0 0 var(--acc);
+  background: color-mix(in oklab, var(--acc) 4%, transparent);
+}
 @media (max-width: 620px) {
   .thought {
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
+}
+
+/* ── loop strip (inside the world-model section) ───────────────────────── */
+.loopline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 14px;
+  border: 1px solid var(--line);
+  padding: clamp(18px, 2vw, 26px);
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--fg);
+}
+.loopline__step b {
+  font-weight: 500;
+  color: var(--dim2);
+  margin-right: 6px;
+}
+.loopline__sep {
+  color: var(--acc);
+}
+.loopline__cap {
+  flex-basis: 100%;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--dim);
 }
 
 /* ── architecture stack (the proof section) ────────────────────────────── */
