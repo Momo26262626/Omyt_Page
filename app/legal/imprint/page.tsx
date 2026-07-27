@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal/imprint" },
   title: "Imprint",
   description: "Provider identification according to § 5 DDG.",
   robots: { index: true, follow: true },

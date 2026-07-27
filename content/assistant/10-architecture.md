@@ -25,7 +25,7 @@ what they take as input, what they produce, and why they are the hard part.
 
 ## Deployment
 
-During the design-partner programme, omyt runs against the customer's own
+During the design-partner program, omyt runs against the customer's own
 systems. Their data does not leave their infrastructure, and nothing about their
 business trains anything shared across customers. A hosted option arrives with
 the SaaS in Q4 2026.

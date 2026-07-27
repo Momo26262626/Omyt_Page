@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { Waitlist } from "@/components/Waitlist";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/partners" },
   title: "Design partners",
   description:
     "We're taking a small number of design partners. Each brain is built by hand against your own systems, you get a direct line to the people building it, and the hosted product lands Q4 2026.",

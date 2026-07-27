@@ -39,11 +39,12 @@ async function loadCorpus(): Promise<string> {
     const parts = await Promise.all(
       files.map(async (f) => `--- ${f} ---\n${await fs.readFile(path.join(dir, f), "utf8")}`),
     );
-    corpusCache = parts.join("\n\n");
+    const joined = parts.join("\n\n");
+    if (joined.trim()) corpusCache = joined; // never cache an empty read
+    return joined;
   } catch {
-    corpusCache = "";
+    return ""; // uncached — retried on the next request
   }
-  return corpusCache;
 }
 
 const SYSTEM = (
@@ -120,6 +121,15 @@ export async function POST(req: Request) {
   }
 
   const corpus = await loadCorpus();
+  if (!corpus) {
+    // Fail closed: without the reference corpus the model would answer from
+    // its own weights, which breaks every guardrail above.
+    console.error("[assist] corpus empty or unreadable — refusing to answer ungrounded");
+    return Response.json(
+      { error: "The assistant is missing its notes right now. Email hello@omyt.ai instead." },
+      { status: 503 },
+    );
+  }
 
   let upstream: Response;
   try {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product" },
   title: "Product",
   description:
     "Inside omyt: how one model holds everything your business knows, reasons across it continuously, and acts — sourcing, outreach, pipeline and marketing in one loop.",

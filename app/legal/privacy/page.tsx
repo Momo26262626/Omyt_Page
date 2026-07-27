@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal/privacy" },
   title: "Privacy Policy",
   description: "How omyt handles personal data on this website.",
   robots: { index: true, follow: true },

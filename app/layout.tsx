@@ -23,6 +23,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omyt.ai"),
+  alternates: { canonical: "/" },
   title: {
     default: "omyt — the company brain",
     template: "%s · omyt",

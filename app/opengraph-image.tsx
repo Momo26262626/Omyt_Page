@@ -69,7 +69,8 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Persistent
+          <span>Meet omyt</span>
+          <span style={{ color: "#44c5e4" }}>.</span>
         </div>
         <div
           style={{
@@ -81,7 +82,7 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Semantic
+          The company
         </div>
         <div
           style={{
@@ -93,9 +94,7 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          <span>World</span>
-          <span style={{ color: "#6b7280" }}>_</span>
-          <span>Model</span>
+          <span>Brain</span>
           <span style={{ color: "#44c5e4" }}>.</span>
         </div>
       </div>
@@ -111,8 +110,8 @@ export default function OpengraphImage() {
         }}
       >
         <span style={{ maxWidth: 620, color: "#aeb6c6", fontSize: 24, lineHeight: 1.3 }}>
-          The company brain. Reads every signal, remembers it, reasons over it — tells you the next
-          move.
+          It knows everything your business knows — and acts on it. A persistent semantic world
+          model underneath.
         </span>
         <span style={{ letterSpacing: 3 }}>omyt.ai</span>
       </div>

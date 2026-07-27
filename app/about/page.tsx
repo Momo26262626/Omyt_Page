@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "Why omyt exists: every business already knows what it needs to know, but no system holds all of it. omyt is the company brain that does.",

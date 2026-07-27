@@ -16,7 +16,7 @@ the customer holds the controls and the brain compounds within them.
 
 ## Data
 
-- During the design-partner programme, omyt runs against the customer's own
+- During the design-partner program, omyt runs against the customer's own
   systems. Their data does not leave their infrastructure.
 - Nothing about one customer's business trains anything shared across customers.
 - The value comes from persistence — the model holds the customer's own history

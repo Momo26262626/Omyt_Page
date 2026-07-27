@@ -23,7 +23,7 @@ it on themselves.
 
 ## Contact and next steps
 
-- To get involved, use the application form on the site (the waitlist / "Apply"
+- To get involved, use the application form on the site ("Request an invite" / "Apply"
   section). Everyone gets a reply, including an honest read on fit.
 - For anything else: hello@omyt.ai.
 - Legal and company details are on the Imprint page; the Privacy page covers how
@@ -32,7 +32,7 @@ it on themselves.
 ## What this assistant can help with
 
 Questions about what omyt does, how it works, how it differs from other tools, the
-design-partner programme, and how to get involved. For technical diligence beyond
+design-partner program, and how to get involved. For technical diligence beyond
 the published material — including the internals of the withheld architecture
 layers — the right path is a direct conversation with the team, which the form
 will start.

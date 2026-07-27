@@ -1,4 +1,4 @@
-# The design-partner programme
+# The design-partner program
 
 omyt is invite-only right now. Instead of a self-serve launch, a small number of
 design partners get a brain built by hand against their own systems, with the
@@ -19,7 +19,7 @@ team in the loop. The hosted product opens in Q4 2026.
 - A real business running sales and marketing at enough volume that the brain has
   something to reason about. It does not work on a blank slate.
 - A short call every couple of weeks while it is being built. That feedback loop
-  is the point of the programme and the reason the number is kept small.
+  is the point of the program and the reason the number is kept small.
 - Honest criticism — the failure mode the team fears is polite.
 - Permission to reference the partner, only once it works and only with sign-off.
 
@@ -40,5 +40,5 @@ marketing.
 
 ## How to apply
 
-Through the form on the site (the "Apply" / waitlist section). Everyone gets a
+Through the form on the site ("Request an invite" on the home page, "Apply" on the design-partners page). Everyone gets a
 reply.
