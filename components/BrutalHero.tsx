@@ -19,9 +19,10 @@ export function BrutalHero() {
   const objRef = useRef<HTMLDivElement | null>(null);
   const dockRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll-dock: past the hero the organism glides to the bottom-right corner
-  // (FLIP: fix the wrapper, measure the jump, correct it, interpolate to the
-  // dock point) and hands off to the assistant with a one-time peek event.
+  // Scroll-dock: past the hero the organism glides into the assistant's
+  // "Ask about omyt" tile (FLIP: fix the wrapper, measure the jump, correct it,
+  // interpolate to the tile's measured centre) shrinking and fading so it
+  // vanishes right into the tile, then hands off with a one-time peek event.
   // Desktop only; reduced-motion never docks (the organism just scrolls away).
   useEffect(() => {
     const obj = objRef.current;
@@ -35,14 +36,30 @@ export function BrutalHero() {
     let peekFired = false;
     let base = { x: 0, y: 0 };
     let start = { cx: 0, cy: 0, w: 1 };
+    // dock target = the assistant's "Ask about omyt" tile, measured once per
+    // dock (it's position: fixed, so the rect is stable until a resize undocks)
+    let target = { cx: 0, cy: 0, w: 150 };
     const startAt = () => window.innerHeight * 0.45;
     const endAt = () => window.innerHeight * 1.15;
+
+    const measureTarget = () => {
+      const fab = document.querySelector<HTMLElement>(".asst__fab");
+      const r = fab?.getBoundingClientRect();
+      if (r && r.width > 0) {
+        // land on the tile's centre, shrunk to roughly tile height so the
+        // organism reads as being absorbed by the tile rather than parked
+        target = { cx: r.left + r.width / 2, cy: r.top + r.height / 2, w: Math.max(64, r.height * 1.8) };
+      } else {
+        target = { cx: window.innerWidth - 120, cy: window.innerHeight - 150, w: 150 };
+      }
+    };
 
     const undock = () => {
       if (!docked) return;
       docked = false;
       obj.classList.remove("is-dock");
       dockEl.style.transform = "";
+      dockEl.style.opacity = "";
     };
 
     const frame = () => {
@@ -59,17 +76,18 @@ export function BrutalHero() {
         const post = dockEl.getBoundingClientRect();
         base = { x: pre.left - post.left, y: pre.top - post.top };
         start = { cx: pre.left + pre.width / 2, cy: pre.top + pre.height / 2, w: pre.width };
+        measureTarget();
         docked = true;
       }
       const p = Math.min(1, (y - startAt()) / (endAt() - startAt()));
       const t = p * p * (3 - 2 * p); // smoothstep
-      const targetW = 150;
-      const tcx = window.innerWidth - 120;
-      const tcy = window.innerHeight - 150;
-      const s = 1 + (targetW / start.w - 1) * t;
-      const dx = base.x + (tcx - start.cx) * t;
-      const dy = base.y + (tcy - start.cy) * t;
+      const s = 1 + (target.w / start.w - 1) * t;
+      const dx = base.x + (target.cx - start.cx) * t;
+      const dy = base.y + (target.cy - start.cy) * t;
       dockEl.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
+      // fade out over the last stretch so it disappears right into the tile
+      const fade = Math.max(0, (p - 0.72) / 0.28);
+      dockEl.style.opacity = String(1 - fade * fade);
       if (p >= 1 && !peekFired) {
         peekFired = true;
         window.dispatchEvent(new CustomEvent("omyt:assistant:peek"));
