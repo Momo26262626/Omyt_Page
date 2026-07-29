@@ -130,7 +130,10 @@
   display: flex;
   flex-direction: column;
   background: var(--ink);
-  isolation: isolate;
+  /* no isolation here: the docked (fixed) organism must join the root stacking
+     context. An isolated hero traps its z-index, so the later .panel sections
+     (position: relative, opaque) paint over the glide and slice the brain at
+     their top edge. */
 }
 /* the organ is pinned by CSS sticky — it holds while the copy scrolls past,
    then releases with the hero. No JS, works in every browser. */
@@ -165,7 +168,8 @@
 .hero__object.is-dock {
   position: fixed;
   inset: 0;
-  z-index: 60;
+  /* above the content panels (z auto), below the nav (50) and assistant (80) */
+  z-index: 40;
 }
 .hero__object.is-dock .hero__dockable {
   will-change: transform;
