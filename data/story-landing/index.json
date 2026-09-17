@@ -1,0 +1,9 @@
+{
+  "lt_smoketest01": {
+    "productionId": "svp_smoketest",
+    "platform": "tiktok",
+    "destinationUrl": "https://omyt.ai",
+    "htmlHash": "4d375eb2573e560f0afe4241a67e417e72e8d6a9d6dda4297734198f289d62e7",
+    "exportedAt": "2026-09-17T17:39:41.799Z"
+  }
+}

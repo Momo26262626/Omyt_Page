@@ -12,8 +12,12 @@ next-env.d.ts
 /public/sitemap-0.xml
 /public/robots.txt
 
-# waitlist capture (do not commit lead data)
-/data/
+# waitlist capture (do not commit lead data). Story video line landing pages
+# under /data/story-landing/ are public marketing content, not lead data —
+# explicitly un-ignored below (a bare `/data/` pattern would also hide git
+# from ever looking inside that subdirectory to apply the negation).
+/data/*
+!/data/story-landing/
 
 # runtime logs
 /logs/
